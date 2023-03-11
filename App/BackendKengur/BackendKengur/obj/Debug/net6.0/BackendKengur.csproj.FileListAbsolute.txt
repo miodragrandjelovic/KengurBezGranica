@@ -1,0 +1,80 @@
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\appsettings.json
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\BackendKengur.exe
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\BackendKengur.deps.json
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\BackendKengur.runtimeconfig.json
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\BackendKengur.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\BackendKengur.pdb
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\AWSSDK.Core.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\DnsClient.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\MongoDB.Bson.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\MongoDB.Driver.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\SharpCompress.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Snappier.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\ZstdSharp.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.AssemblyInfo.cs
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\obj\Debug\net6.0\scopedcss\bundle\BackendKengur.styles.css
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.csproj.CopyComplete
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\obj\Debug\net6.0\refint\BackendKengur.dll
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.pdb
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.genruntimeconfig.cache
+C:\Users\User\Desktop\Kengur App\App\BackendKengur\BackendKengur\obj\Debug\net6.0\ref\BackendKengur.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\appsettings.json
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\BackendKengur.exe
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\BackendKengur.deps.json
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\BackendKengur.runtimeconfig.json
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\BackendKengur.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\BackendKengur.pdb
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\AWSSDK.Core.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\DnsClient.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\MongoDB.Bson.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\MongoDB.Driver.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\SharpCompress.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Snappier.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\ZstdSharp.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.AssemblyInfo.cs
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\scopedcss\bundle\BackendKengur.styles.css
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.csproj.CopyComplete
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\refint\BackendKengur.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.pdb
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.genruntimeconfig.cache
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\ref\BackendKengur.dll
