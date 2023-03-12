@@ -8,6 +8,11 @@ using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using BackendKengur.Services.Interfaces;
 using BackendKengur.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using BackendKengur.JWTManager.Interfaces;
+using BackendKengur.JWTManager;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,15 +39,41 @@ builder.Services.AddCors(options =>
     }
 ));*/
 
+
+// Configure Authentication
+
+builder.Services.AddAuthentication(item =>
+{
+    item.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    item.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+    .AddJwtBearer(options => {
+        options.RequireHttpsMetadata = true;
+        options.SaveToken = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("JWTSettings:Token").Value)),
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ClockSkew = TimeSpan.Zero
+
+        };
+    });
+
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
+#region 'Interface - Class Dependency Injection'
+
 #region 'DAL Dependencies'
 
 builder.Services.AddScoped<ISchoolDAL, SchoolDAL>();
+builder.Services.AddTransient<IUserDAL, UserDAL>();
 
 
 #endregion
@@ -50,7 +81,8 @@ builder.Services.AddScoped<ISchoolDAL, SchoolDAL>();
 #region 'Services - BL Dependencies'
 
 builder.Services.AddTransient<ISchoolService, SchoolService>();
-
+builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IAuthService, AuthService>();
 
 #endregion
 
@@ -58,11 +90,16 @@ builder.Services.AddTransient<ISchoolService, SchoolService>();
 
 builder.Services.AddTransient<ISchoolUI, SchoolUI>();
 
+#endregion
+
+#region 'Managers'
+builder.Services.AddTransient<IEncryptionManager, EncryptionManager>();
+builder.Services.AddTransient<IJWTManagerRepository, JWTManagerRepository>();
+builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 
 #endregion
 
-builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
-
+#endregion
 
 var app = builder.Build();
 

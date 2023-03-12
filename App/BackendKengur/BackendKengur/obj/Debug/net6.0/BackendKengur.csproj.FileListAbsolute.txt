@@ -78,3 +78,11 @@ C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug
 C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.pdb
 C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\BackendKengur.genruntimeconfig.cache
 C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\ref\BackendKengur.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

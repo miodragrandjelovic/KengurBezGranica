@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
 
 namespace BackendKengur.Models
 {
@@ -19,13 +20,13 @@ namespace BackendKengur.Models
         public string Email { get; set; } = string.Empty;
 
         [BsonElement("school")]
-        public School? School { get; set; }
+        public MongoDBRef? School { get; set; }
 
         [BsonElement("class")]
         public short Class { get; set; }
 
         [BsonElement("results")]
-        public List<Result>? Results { get; set; }
+        public List<MongoDBRef>? Results { get; set; }
 
         [BsonElement("password")]
         public byte[]? Password { get; set; }
