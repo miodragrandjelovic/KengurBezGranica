@@ -8,6 +8,7 @@ namespace BackendKengur.DAL.Interfaces
         School GetSchoolById(string id);
         School AddNewSchool(School school);
         void DeleteSchool(string id);
-
+        List<School> SearchSchools(string name);
+        School GetSchoolByNameAndCity(string[] _school);
     }
 }

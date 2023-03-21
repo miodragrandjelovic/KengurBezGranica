@@ -29,7 +29,7 @@ builder.Services.AddSingleton<IMongoClient>(s =>
     new MongoClient(builder.Configuration.GetValue<string>("KengurDatabaseSettings:ConnectionString")));
 
 
-/*// CORS Configuration 
+// CORS Configuration 
 builder.Services.AddCors(options =>
     options.AddDefaultPolicy(builder =>
     {
@@ -37,7 +37,7 @@ builder.Services.AddCors(options =>
         .AllowAnyHeader()
         .AllowAnyMethod();
     }
-));*/
+));
 
 
 // Configure Authentication
@@ -65,7 +65,15 @@ builder.Services.AddAuthentication(item =>
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(/*options => {
+    options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey
+    });
+    options.OperationFilter<SecurityRequirementsOperationFilter>();
+}*/);
 
 
 #region 'Interface - Class Dependency Injection'
@@ -104,17 +112,17 @@ builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+/*if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+}*/
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection(); //mozda ovo obrisati
 
 app.UseAuthorization();
 
-/*app.UseCors();*/
+app.UseCors();
 
 app.MapControllers();
 

@@ -10,15 +10,18 @@ namespace BackendKengur.Services
     public class AuthService : IAuthService
     {
         private readonly IUserService userService;
+        private readonly ISchoolService schoolService;
         private readonly IEncryptionManager encryptionManager;
         private readonly IJWTManagerRepository JWTManager;
 
 
         public AuthService(IUserService userService,
+                           ISchoolService schoolService,
                            IEncryptionManager encryptionManager, 
                            IJWTManagerRepository JWTManager)
         {
             this.userService = userService;
+            this.schoolService = schoolService;
             this.encryptionManager = encryptionManager;
             this.JWTManager = JWTManager;
         }
@@ -61,6 +64,7 @@ namespace BackendKengur.Services
                 return response;
             }
 
+            var school = schoolService.GetSchoolByNameAndCity(registerDTO.School);
 
             encryptionManager.EncryptPassword(registerDTO.Password, out passwordHash, out passwordKey);
             User newUser = new User
@@ -68,7 +72,7 @@ namespace BackendKengur.Services
                 FirstName = registerDTO.FirstName,
                 LastName = registerDTO.LastName,
                 Email = registerDTO.Email,
-                School = new MongoDBRef(Constants.Constants.SCHOOL, registerDTO.School),
+                School = new MongoDBRef(Constants.Constants.SCHOOL, school.Id),
                 Class = registerDTO.Class,
                 Password = passwordHash,
                 PasswordKey = passwordKey

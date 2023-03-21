@@ -43,5 +43,14 @@ namespace BackendKengur.Controllers
             schoolUI.DeleteSchool(id);
             return Ok();
         }
+
+        [HttpGet("SearchSchools/{name}")]
+        public async Task<IActionResult> SearchSchools(string name)
+        {
+            var schools = schoolUI.SearchSchools(name);
+            return Ok(schools);
+        }
+
+
     }
 }

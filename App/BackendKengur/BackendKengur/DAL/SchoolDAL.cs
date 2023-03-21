@@ -34,6 +34,22 @@ namespace BackendKengur.DAL
         {
             _schools.DeleteOne(school => school.Id == id);
         }
-        
+
+        public List<School> SearchSchools(string name)
+        {
+            return _schools.Find(schools=> schools.Name.Contains(name)).ToList();
+        }
+
+        public School GetSchoolByNameAndCity(string[] _school)
+        {
+            var nameFilter = Builders<School>.Filter
+            .Eq(s => s.Name, _school[0]);
+
+            var cityFilter = Builders<School>.Filter
+                .Eq(s => s.City, _school[1]);
+
+            var filter = Builders<School>.Filter.And(nameFilter, cityFilter);
+            return _schools.Find(filter).FirstOrDefault();
+        }
     }
 }

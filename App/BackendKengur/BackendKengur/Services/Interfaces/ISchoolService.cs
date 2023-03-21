@@ -9,6 +9,9 @@ namespace BackendKengur.Services.Interfaces
         List<School> GetAllSchools();
         School GetSchoolById(string id);
         void DeleteSchool(string id);
+        List<School> SearchSchools(string school);
+
+        School GetSchoolByNameAndCity(string school);
 
     }
 }

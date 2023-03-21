@@ -2,7 +2,7 @@ package com.example.kengur.utility
 
 object Constants {
 
-    const val BASE_URL: String = "http://10.0.2.2:5231"
+    const val BASE_URL: String = "http://10.0.2.2:5248"
     const val SHAREDPREFS_PATH: String = "com.example.kengur"
 
     // Kodovi

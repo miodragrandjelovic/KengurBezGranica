@@ -32,5 +32,18 @@ namespace BackendKengur.Services
         {
             return schoolDAL.GetSchoolById(id);
         }
+
+        public List<School> SearchSchools(string name)
+        {
+            return schoolDAL.SearchSchools(name);
+        }
+
+        public School GetSchoolByNameAndCity(string school)
+        {
+            string[] _school = school.Split(",");
+
+            return schoolDAL.GetSchoolByNameAndCity(_school);
+        }
+
     }
 }

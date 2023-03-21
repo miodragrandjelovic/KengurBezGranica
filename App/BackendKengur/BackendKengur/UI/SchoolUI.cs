@@ -32,5 +32,10 @@ namespace BackendKengur.UI
         {
             return schoolService.GetSchoolById(id);
         }
+
+        public List<School> SearchSchools(string name)
+        {
+            return schoolService.SearchSchools(name);
+        }
     }
 }

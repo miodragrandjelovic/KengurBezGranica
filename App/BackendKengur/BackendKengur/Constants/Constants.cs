@@ -7,7 +7,9 @@
 
         public const string SCHOOL = "school";
 
+        //Limits
 
+        public const int SchoolSearchLimit = 10;
 
         // JWT Constants
 

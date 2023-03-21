@@ -3,6 +3,7 @@ using BackendKengur.Models;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace BackendKengur.JWTManager
 {
@@ -44,7 +45,35 @@ namespace BackendKengur.JWTManager
 
         public string? ReadToken(string token)
         {
-            throw new NotImplementedException();
+            if (token.IsNullOrEmpty())
+                return null;
+
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+
+            var key = Encoding.UTF8.GetBytes(configuration.GetSection("JWTSettings:Token").Value);
+
+            try
+            {
+                tokenHandler.ValidateToken(token, new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ClockSkew = TimeSpan.Zero
+                }, out SecurityToken validatedToken); ;
+
+                var jwtToken = (JwtSecurityToken)validatedToken;
+                var email = jwtToken.Claims.First(x => x.Type == ClaimTypes.Email).Value;
+                return email;
+            }
+            catch
+            {
+
+                return null;
+            }
         }
     }
+
 }
