@@ -18,7 +18,9 @@ import com.example.kengur.R
 import com.example.kengur.dtos.request.RegisterRequest
 import com.example.kengur.dtos.response.MessageResponse
 import com.example.kengur.models.School
+import com.example.kengur.utility.ActivityControl
 import com.example.kengur.utility.ApiClient
+import com.example.kengur.utility.SessionManager
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.dialog_school_search.*
 import retrofit2.Call
@@ -29,6 +31,7 @@ class RegisterActivity : AppCompatActivity() {
 
 
     lateinit var apiClient: ApiClient
+    lateinit var sessionManager:SessionManager
     private var schoolList: java.util.ArrayList<String> = java.util.ArrayList<String>()
     private var classList = arrayOf(
         "1. razred","2. razred","3. razred","4. razred","5. razred","6. razred","7. razred","8. razred","9. razred","10. razred","11. razred","12. razred"
@@ -39,6 +42,9 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         apiClient = ApiClient()
+        sessionManager = SessionManager(this)
+        ActivityControl.handleUserSignedIn(this,this,sessionManager,savedInstanceState)
+
         setClass()
         searchSchool()
         register()
@@ -46,9 +52,16 @@ class RegisterActivity : AppCompatActivity() {
 
     }
 
+    override fun onRestart() {
+        super.onRestart();
+        ActivityControl.handleUserSignedIn(this,this, sessionManager, null)
+        //resetInputs()
+    }
+
+
     private fun register() {
 
-        ib_register.setOnClickListener(){
+        tv_register.setOnClickListener(){
 
             val ime = et_ime.text.toString()
             val prezime = et_prezime.text.toString()

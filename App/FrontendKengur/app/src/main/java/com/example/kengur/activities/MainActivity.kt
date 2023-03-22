@@ -4,20 +4,35 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.kengur.R
+import com.example.kengur.utility.ActivityControl
+import com.example.kengur.utility.SessionManager
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.ll_register
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var sessionManager: SessionManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        sessionManager = SessionManager(this)
+        ActivityControl.handleUserSignedIn(this,this,sessionManager,savedInstanceState)
 
         goToLogin()
         goToRegister()
 
     }
 
+    override fun onRestart() {
+        super.onRestart();
+        ActivityControl.handleUserSignedIn(this, this, sessionManager, null)
+    }
+
     private fun goToLogin(){
-        btn_login.setOnClickListener(){
+        tv_login_m.setOnClickListener(){
             val intent = Intent (this, LoginActivity::class.java);
             startActivity(intent);
         }

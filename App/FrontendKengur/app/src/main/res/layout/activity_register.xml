@@ -26,9 +26,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:fontFamily="@font/inter_semibold"
-            android:text="Registracija"
+            android:text="Kengur bez granica"
             android:textColor="@color/white"
             android:textSize="@dimen/_25sdp" />
 
@@ -59,7 +59,7 @@
         android:gravity="center"
         android:orientation="vertical"
         android:paddingLeft="@dimen/_7sdp"
-        android:paddingTop="@dimen/_38sdp"
+        android:paddingTop="@dimen/_34sdp"
         android:paddingRight="@dimen/_7sdp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
@@ -218,12 +218,44 @@
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
 
-        <ImageButton
-            android:id="@+id/ib_register"
+        <TextView
+            android:id="@+id/tv_register"
             android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_9sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Registruj se"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            android:background="@drawable/bign_btn"/>
+
+        <LinearLayout
+            android:id="@+id/ll_login"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:background="@drawable/register_btn" />
+            android:padding="@dimen/_7sdp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vec imaš nalog?"
+                android:fontFamily="@font/inter"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:fontFamily="@font/inter_bold"
+                android:text="Prijavi se"
+                android:textColor="@color/white" />
+        </LinearLayout>
 
     </LinearLayout>
 

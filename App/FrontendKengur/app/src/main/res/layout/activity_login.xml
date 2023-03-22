@@ -4,6 +4,144 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".activities.LoginActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_marginTop="@dimen/_39sdp"
+            android:background="@drawable/logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Kengur bez granica"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_25sdp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_280sdp"
+        android:background="@drawable/registerpanel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/_7sdp"
+        android:paddingRight="@dimen/_7sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_marginLeft="@dimen/_7sdp"
+            android:layout_marginBottom="@dimen/_7sdp"
+            android:text="Dobro došli"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp"
+            android:fontFamily="@font/inter_semibold"
+            />
+
+        <EditText
+            android:id="@+id/et_email_l"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:background="@drawable/input_field_huge"
+            android:fontFamily="@font/inter"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_7sdp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <EditText
+            android:id="@+id/et_password_l"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:background="@drawable/input_field_huge"
+            android:fontFamily="@font/inter"
+            android:hint="Šifra"
+            android:inputType="textPassword"
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_7sdp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_login_l"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:fontFamily="@font/inter_medium"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="Prijavi se"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:background="@drawable/bign_btn"/>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/ll_register_l"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/_7sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="Nemaš nalog?"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:fontFamily="@font/inter_bold"
+                android:text="Registruj se"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+    <!--  </ScrollView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
