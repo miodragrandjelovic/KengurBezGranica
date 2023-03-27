@@ -97,13 +97,13 @@ builder.Services.AddTransient<IAuthService, AuthService>();
 #region 'UI - Dependencies'
 
 builder.Services.AddTransient<ISchoolUI, SchoolUI>();
+builder.Services.AddTransient<IUserUI, UserUI>();
 
 #endregion
 
 #region 'Managers'
 builder.Services.AddTransient<IEncryptionManager, EncryptionManager>();
 builder.Services.AddTransient<IJWTManagerRepository, JWTManagerRepository>();
-builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 
 #endregion
 
@@ -112,11 +112,11 @@ builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-/*if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-}*/
+}
 
 //app.UseHttpsRedirection(); //mozda ovo obrisati
 

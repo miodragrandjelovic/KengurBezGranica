@@ -31,12 +31,4 @@ object ActivityControl {
 
     }
 
-    public fun handleUserNotSignedIn(activity: Activity?, context: Context, sessionManager: SessionManager, savedInstanceState: Bundle?){
-        var user: UserData? = sessionManager.fetchUserData()
-        if(user == null){
-            val intent = Intent(context, MainActivity::class.java)
-            ContextCompat.startActivity(context, intent, savedInstanceState)
-        }
-    }
-
 }

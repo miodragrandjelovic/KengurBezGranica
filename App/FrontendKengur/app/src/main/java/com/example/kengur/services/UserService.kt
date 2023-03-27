@@ -4,6 +4,7 @@ import com.example.kengur.dtos.request.LoginRequest
 import com.example.kengur.dtos.request.RegisterRequest
 import com.example.kengur.dtos.response.LoginResponse
 import com.example.kengur.dtos.response.MessageResponse
+import com.example.kengur.dtos.response.UserResponse
 import com.example.kengur.models.School
 import retrofit2.Call
 import retrofit2.http.Body
@@ -21,5 +22,8 @@ interface UserService {
 
     @GET("api/School/SearchSchools/{name}")
     fun searchSchools(@Path(value = "name") name: String): Call<ArrayList<School>>
+
+    @GET("api/User/GetUser/{email}")
+    fun getUser(@Path(value = "email") email: String):Call<UserResponse>
 
 }

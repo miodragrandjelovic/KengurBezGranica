@@ -1,6 +1,7 @@
 ﻿using BackendKengur.Models;
 using BackendKengur.Services.Interfaces;
 using BackendKengur.DAL.Interfaces;
+using System.Security.Claims;
 
 namespace BackendKengur.Services
 {
@@ -30,6 +31,8 @@ namespace BackendKengur.Services
                 StatusCode = StatusCodes.Status200OK
             };
         }
+
+
 
         public User? GetUser(string email)
         {

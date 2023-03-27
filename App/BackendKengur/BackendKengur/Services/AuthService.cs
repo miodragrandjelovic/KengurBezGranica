@@ -72,7 +72,10 @@ namespace BackendKengur.Services
                 FirstName = registerDTO.FirstName,
                 LastName = registerDTO.LastName,
                 Email = registerDTO.Email,
-                School = new MongoDBRef(Constants.Constants.SCHOOL, school.Id),
+                School = new School { 
+                    Id = school.Id,
+                    Name = school.Name,
+                    City = school.City},
                 Class = registerDTO.Class,
                 Password = passwordHash,
                 PasswordKey = passwordKey

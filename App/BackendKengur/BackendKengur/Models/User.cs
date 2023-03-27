@@ -20,13 +20,19 @@ namespace BackendKengur.Models
         public string Email { get; set; } = string.Empty;
 
         [BsonElement("school")]
-        public MongoDBRef? School { get; set; }
+        public School? School { get; set; }
 
         [BsonElement("class")]
         public short Class { get; set; }
 
         [BsonElement("results")]
         public List<MongoDBRef>? Results { get; set; }
+
+        [BsonElement("testNumber")]
+        public int TestNumber { get; set; } = 0;
+
+        [BsonElement("sumPoints")]
+        public float SumPoints { get; set; } = 0;
 
         [BsonElement("password")]
         public byte[]? Password { get; set; }

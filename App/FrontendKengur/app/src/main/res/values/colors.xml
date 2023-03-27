@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name ="input_plava">#4E7EAB</color>
     <color name ="shadow">#242424</color>
+    <color name ="dark_blue">#18397D</color>
+    <color name="dark_gray">#131317</color>
 </resources>
