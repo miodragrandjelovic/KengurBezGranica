@@ -13,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using BackendKengur.JWTManager.Interfaces;
 using BackendKengur.JWTManager;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -82,6 +83,7 @@ builder.Services.AddSwaggerGen(/*options => {
 
 builder.Services.AddScoped<ISchoolDAL, SchoolDAL>();
 builder.Services.AddTransient<IUserDAL, UserDAL>();
+builder.Services.AddTransient<IAssignmentDAL, AssignmentDAL>();
 
 
 #endregion
@@ -91,6 +93,8 @@ builder.Services.AddTransient<IUserDAL, UserDAL>();
 builder.Services.AddTransient<ISchoolService, SchoolService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IAuthService, AuthService>();
+builder.Services.AddTransient<IAssignmentService, AssignmentService>();
+builder.Services.AddTransient<IFileService, FileService>();
 
 #endregion
 
@@ -98,6 +102,7 @@ builder.Services.AddTransient<IAuthService, AuthService>();
 
 builder.Services.AddTransient<ISchoolUI, SchoolUI>();
 builder.Services.AddTransient<IUserUI, UserUI>();
+builder.Services.AddTransient<IAssignmentUI, AssignmentUI>();
 
 #endregion
 
@@ -125,5 +130,14 @@ app.UseAuthorization();
 app.UseCors();
 
 app.MapControllers();
+
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+           Path.Combine(builder.Environment.ContentRootPath, "Images")),
+    RequestPath = "/Images"
+});
+
 
 app.Run();

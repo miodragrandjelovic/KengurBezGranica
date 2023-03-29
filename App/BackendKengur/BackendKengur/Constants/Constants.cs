@@ -18,8 +18,7 @@
         public const string CLASS = "Class";
 
 
-        // DefaultImage path
-        public const string IMAGE_PATH = @"\Images\DefaultProfileImage\";
-        public const string IMAGE_PATH_LINUX = @"/Images/DefaultProfileImage/";
+        // Images 
+        public const string ROOT_FOLDER = "Images";
     }
 }
