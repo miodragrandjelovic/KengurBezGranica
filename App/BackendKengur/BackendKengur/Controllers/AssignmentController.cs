@@ -24,5 +24,13 @@ namespace BackendKengur.Controllers
             return Ok(createdAssignmentl);
         }
 
+
+        [HttpGet("GetAssignmentsByClass/{Class}")]
+        public async Task<IActionResult> GetAssignmentsByClass(string Class)
+        {
+            var assignments = assignmentUI.GetAssignmentsByClass(Class);
+            return Ok(assignments);
+        }
+
     }
 }

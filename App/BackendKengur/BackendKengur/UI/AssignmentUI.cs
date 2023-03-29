@@ -18,5 +18,10 @@ namespace BackendKengur.UI
         {
             return assignmentService.AddNewAssignment(assignmentDTO);
         }
+
+        public List<Assignment> GetAssignmentsByClass(string Class)
+        {
+            return assignmentService.GetAssignmentsByClass(Class);
+        }
     }
 }

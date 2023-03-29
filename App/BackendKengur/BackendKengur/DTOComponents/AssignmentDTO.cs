@@ -11,6 +11,8 @@
 
         public List<IFormFile>? AnswersPictures { get; set; }
 
+        public int CorrectAnswerIndex { get; set; } = 0;
+
         public int Level { get; set; } = 3;
 
         public string Class { get; set; } = string.Empty;

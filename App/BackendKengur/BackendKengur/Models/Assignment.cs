@@ -21,7 +21,10 @@ namespace BackendKengur.Models
         [BsonElement("answersPictures")]
         public List<string> AnswersPictures { get; set; } = new List<string>();
 
-        [BsonElement("correctAnswer")]
+        [BsonElement("correctAnswerIndex")]
+        public int CorrectAnswerIndex { get; set; } = 0;
+
+        [BsonElement("level")]
         public int Level { get; set; } = 3;
 
         [BsonElement("class")]

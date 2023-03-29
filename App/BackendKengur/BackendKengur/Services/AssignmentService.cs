@@ -25,6 +25,7 @@ namespace BackendKengur.Services
             assignment.AnswersText = assignmentDTO.AnswersText;
             assignment.Level = assignmentDTO.Level;
             assignment.Class = assignmentDTO.Class;
+            assignment.CorrectAnswerIndex = assignmentDTO.CorrectAnswerIndex;
 
             var path = Path.Combine(Constants.Constants.ROOT_FOLDER, assignmentDTO.Class,assignmentDTO.Level.ToString());
 
@@ -48,6 +49,26 @@ namespace BackendKengur.Services
 
 
             return assignmentDAL.AddNewAssignment(assignment);
+        }
+
+        public List<Assignment> GetAssignmentsByClass(string Class)
+        {
+            var assignments = assignmentDAL.GetAssignmentsByClass(Class);
+
+            // dodavanje full path-a slikama da bi moglo da im se pristupi sa fronta
+            foreach (var assignment in assignments)
+            {
+                if(assignment.TaskPicture!="")
+                    assignment.TaskPicture = Path.Combine(Constants.Constants.ROOT_FOLDER,assignment.Class,assignment.Level.ToString(),assignment.TaskPicture);
+
+                for(int i = 0; i < assignment.AnswersPictures.Count; i++)
+                {
+                    assignment.AnswersPictures[i]= Path.Combine(Constants.Constants.ROOT_FOLDER, assignment.Class, assignment.Level.ToString(), assignment.AnswersPictures[i]);
+                }
+
+            }
+            return assignments;
+
         }
     }
 }

@@ -21,5 +21,10 @@ namespace BackendKengur.DAL
             _assignments.InsertOne(assignment);
             return assignment;
         }
+
+        public List<Assignment> GetAssignmentsByClass(string Class)
+        {
+            return _assignments.Find(assignment => Class.Equals(assignment.Class)).ToList();
+        }
     }
 }
