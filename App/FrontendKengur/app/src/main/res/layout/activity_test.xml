@@ -47,8 +47,10 @@
 
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="@dimen/_270sdp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_22sdp"
+        android:layout_marginRight="@dimen/_22sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/test_bar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,6 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/task_number">
 
         <ImageView
+            android:id="@+id/progress_bar"
             android:layout_width="@dimen/_21sdp"
             android:layout_height="@dimen/_8sdp"
             android:layout_marginLeft="-1dp"
@@ -64,38 +67,25 @@
             />
     </FrameLayout>
 
-    <TextView
-        android:id="@+id/task_current"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_22sdp"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:fontFamily="@font/inter_medium"
-        android:text="1/18"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_14sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
-
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_510sdp"
+        android:layout_height="@dimen/_460sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:paddingBottom="@dimen/_1sdp"
         android:background="@drawable/radius"
+        android:paddingBottom="@dimen/_1sdp"
+        app:layout_constraintBottom_toTopOf="@+id/task_previous"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/task_current">
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_15sdp"
+            android:gravity="center"
             android:orientation="vertical"
-            android:gravity="center">
+            android:padding="@dimen/_15sdp">
 
             <TextView
                 android:id="@+id/task_text"
@@ -117,13 +107,13 @@
                     android:id="@+id/task_picture"
                     android:layout_width="@dimen/_110sdp"
                     android:layout_height="@dimen/_110sdp"
-                    android:scaleType="centerCrop"
+                    android:padding="@dimen/_2sdp"
                     tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             </androidx.cardview.widget.CardView>
 
-
             <androidx.cardview.widget.CardView
+                android:id="@+id/answer_1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="@dimen/_12sdp"
@@ -131,30 +121,30 @@
 
 
                 <FrameLayout
+                    android:id="@+id/fl_1"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
-                    android:background="@color/gray"
-                    >
+                    android:background="@color/gray">
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/mcv_A"
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
-                        app:cardCornerRadius="@dimen/_10sdp"
-                        android:layout_marginLeft="@dimen/_7sdp"
                         android:layout_gravity="center_vertical"
-                        app:strokeWidth="@dimen/_1sdp"
+                        android:layout_marginLeft="@dimen/_7sdp"
+                        app:cardCornerRadius="@dimen/_10sdp"
                         app:strokeColor="@color/black"
-                        >
+                        app:strokeWidth="@dimen/_1sdp">
 
                         <TextView
+                            android:id="@+id/tv_A"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@color/gray"
                             android:gravity="center"
                             android:text="A"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_30sdp"
-                            android:background="@color/gray"
-                            />
+                            android:textSize="@dimen/_30sdp" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -164,11 +154,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
+                        android:text="Lorem ipsum bla bla bla"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
-                        android:text="Lorem ipsum bla bla bla"
-                        android:visibility="gone"
-                        />
+                        android:visibility="gone" />
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cv_answer_picture_1"
@@ -181,7 +170,7 @@
                             android:id="@+id/answer_picture_1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
+                            android:padding="@dimen/_2sdp"
                             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                     </androidx.cardview.widget.CardView>
@@ -194,6 +183,7 @@
             <!--prvi odgovor-->
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/answer_2"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="@dimen/_12sdp"
@@ -201,57 +191,56 @@
 
 
                 <FrameLayout
+                    android:id="@+id/fl_2"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
-                    android:background="@color/gray"
-                    >
+                    android:background="@color/gray">
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/mcv_B"
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
-                        app:cardCornerRadius="@dimen/_10sdp"
-                        android:layout_marginLeft="@dimen/_7sdp"
                         android:layout_gravity="center_vertical"
-                        app:strokeWidth="@dimen/_1sdp"
+                        android:layout_marginLeft="@dimen/_7sdp"
+                        app:cardCornerRadius="@dimen/_10sdp"
                         app:strokeColor="@color/black"
-                        >
+                        app:strokeWidth="@dimen/_1sdp">
 
                         <TextView
+                            android:id="@+id/tv_B"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@color/gray"
                             android:gravity="center"
                             android:text="B"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_30sdp"
-                            android:background="@color/gray"
-                            />
+                            android:textSize="@dimen/_30sdp" />
 
                     </com.google.android.material.card.MaterialCardView>
 
 
                     <TextView
+                        android:id="@+id/answer_text_2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp"
                         android:text="Lorem ipsum bla bla bla"
-                        />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cv_answer_picture_2"
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
                         android:layout_gravity="center"
-                        app:cardCornerRadius="@dimen/_10sdp"
                         android:visibility="gone"
-                        >
+                        app:cardCornerRadius="@dimen/_10sdp">
 
                         <ImageView
                             android:id="@+id/answer_picture_2"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
+                            android:padding="@dimen/_2sdp"
                             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                     </androidx.cardview.widget.CardView>
@@ -264,6 +253,7 @@
             <!--drugi odgovor-->
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/answer_3"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="@dimen/_12sdp"
@@ -271,57 +261,56 @@
 
 
                 <FrameLayout
+                    android:id="@+id/fl_3"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
-                    android:background="@color/gray"
-                    >
+                    android:background="@color/gray">
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/mcv_V"
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
-                        app:cardCornerRadius="@dimen/_10sdp"
-                        android:layout_marginLeft="@dimen/_7sdp"
                         android:layout_gravity="center_vertical"
-                        app:strokeWidth="@dimen/_1sdp"
+                        android:layout_marginLeft="@dimen/_7sdp"
+                        app:cardCornerRadius="@dimen/_10sdp"
                         app:strokeColor="@color/black"
-                        >
+                        app:strokeWidth="@dimen/_1sdp">
 
                         <TextView
+                            android:id="@+id/tv_V"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@color/gray"
                             android:gravity="center"
                             android:text="V"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_30sdp"
-                            android:background="@color/gray"
-                            />
+                            android:textSize="@dimen/_30sdp" />
 
                     </com.google.android.material.card.MaterialCardView>
 
 
                     <TextView
+                        android:id="@+id/answer_text_3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp"
                         android:text="Lorem ipsum bla bla bla"
-                        />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cv_answer_picture_3"
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
                         android:layout_gravity="center"
-                        app:cardCornerRadius="@dimen/_10sdp"
                         android:visibility="gone"
-                        >
+                        app:cardCornerRadius="@dimen/_10sdp">
 
                         <ImageView
                             android:id="@+id/answer_picture_3"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
+                            android:padding="@dimen/_2sdp"
                             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                     </androidx.cardview.widget.CardView>
@@ -334,6 +323,7 @@
             <!--treci odgovor-->
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/answer_4"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="@dimen/_12sdp"
@@ -341,57 +331,56 @@
 
 
                 <FrameLayout
+                    android:id="@+id/fl_4"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
-                    android:background="@color/gray"
-                    >
+                    android:background="@color/gray">
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/mcv_G"
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
-                        app:cardCornerRadius="@dimen/_10sdp"
-                        android:layout_marginLeft="@dimen/_7sdp"
                         android:layout_gravity="center_vertical"
-                        app:strokeWidth="@dimen/_1sdp"
+                        android:layout_marginLeft="@dimen/_7sdp"
+                        app:cardCornerRadius="@dimen/_10sdp"
                         app:strokeColor="@color/black"
-                        >
+                        app:strokeWidth="@dimen/_1sdp">
 
                         <TextView
+                            android:id="@+id/tv_G"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@color/gray"
                             android:gravity="center"
                             android:text="G"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_30sdp"
-                            android:background="@color/gray"
-                            />
+                            android:textSize="@dimen/_30sdp" />
 
                     </com.google.android.material.card.MaterialCardView>
 
 
                     <TextView
+                        android:id="@+id/answer_text_4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp"
                         android:text="Lorem ipsum bla bla bla"
-                        />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cv_answer_picture_4"
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
                         android:layout_gravity="center"
-                        app:cardCornerRadius="@dimen/_10sdp"
                         android:visibility="gone"
-                        >
+                        app:cardCornerRadius="@dimen/_10sdp">
 
                         <ImageView
                             android:id="@+id/answer_picture_4"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
+                            android:padding="@dimen/_2sdp"
                             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                     </androidx.cardview.widget.CardView>
@@ -404,6 +393,7 @@
             <!--cetvrti odgovor-->
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/answer_5"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="@dimen/_12sdp"
@@ -411,57 +401,56 @@
 
 
                 <FrameLayout
+                    android:id="@+id/fl_5"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
-                    android:background="@color/gray"
-                    >
+                    android:background="@color/gray">
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/mcv_D"
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
-                        app:cardCornerRadius="@dimen/_10sdp"
-                        android:layout_marginLeft="@dimen/_7sdp"
                         android:layout_gravity="center_vertical"
-                        app:strokeWidth="@dimen/_1sdp"
+                        android:layout_marginLeft="@dimen/_7sdp"
+                        app:cardCornerRadius="@dimen/_10sdp"
                         app:strokeColor="@color/black"
-                        >
+                        app:strokeWidth="@dimen/_1sdp">
 
                         <TextView
+                            android:id="@+id/tv_D"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@color/gray"
                             android:gravity="center"
                             android:text="D"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_30sdp"
-                            android:background="@color/gray"
-                            />
+                            android:textSize="@dimen/_30sdp" />
 
                     </com.google.android.material.card.MaterialCardView>
 
 
                     <TextView
+                        android:id="@+id/answer_text_5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp"
                         android:text="Lorem ipsum bla bla bla"
-                        />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cv_answer_picture_5"
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
                         android:layout_gravity="center"
-                        app:cardCornerRadius="@dimen/_10sdp"
                         android:visibility="gone"
-                        >
+                        app:cardCornerRadius="@dimen/_10sdp">
 
                         <ImageView
                             android:id="@+id/answer_picture_5"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
+                            android:padding="@dimen/_2sdp"
                             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                     </androidx.cardview.widget.CardView>

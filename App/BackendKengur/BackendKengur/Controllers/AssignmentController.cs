@@ -25,7 +25,7 @@ namespace BackendKengur.Controllers
         }
 
 
-        [HttpGet("GetAssignmentsByClass/{Class}")]
+        [HttpGet("GenerateTest/{Class}")]
         public async Task<IActionResult> GetAssignmentsByClass(string Class)
         {
             var assignments = assignmentUI.GetAssignmentsByClass(Class);

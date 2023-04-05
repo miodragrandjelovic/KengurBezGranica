@@ -42,7 +42,18 @@ class HomeActivity : AppCompatActivity() {
         sessionManager = SessionManager(this)
 
         profileInit()
+        testStart()
 
+    }
+
+    private fun testStart() {
+        component_test.setOnClickListener(){
+
+            val intent = Intent(this, TestActivity::class.java)
+            intent.putExtra("Class", tv_class_h.text.toString())
+            startActivity(intent)
+
+        }
     }
 
     private fun popup() {
