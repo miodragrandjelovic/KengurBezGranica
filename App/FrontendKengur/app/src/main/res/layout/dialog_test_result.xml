@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bg"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Osvojio si"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_30sdp"
+        />
+    <TextView
+        android:id="@+id/dialog_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  poena!"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_28sdp"
+        />
+
+    <TextView
+        android:id="@+id/ranking_list"
+        android:layout_width="@dimen/_170sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:paddingLeft="@dimen/_25sdp"
+        android:paddingRight="@dimen/_25sdp"
+        android:paddingBottom="@dimen/_12sdp"
+        android:text="Dodaj rezultat na rang listu"
+        android:textSize="@dimen/_15sdp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@drawable/input_field"
+
+        />
+
+    <TextView
+        android:id="@+id/home_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:text="@string/underline_dialog_test"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_20sdp"
+        />
+
+
+</LinearLayout>

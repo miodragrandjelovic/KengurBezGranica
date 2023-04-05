@@ -1,22 +1,29 @@
 package com.example.kengur.activities
 
+import android.app.Dialog
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.graphics.Color
+import android.graphics.Paint
 import android.os.Bundle
-import android.util.Log
+import android.view.Window
 import android.widget.FrameLayout
+import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.indices
+import androidx.core.graphics.drawable.toDrawable
 import androidx.core.view.isGone
 import com.example.kengur.R
 import com.example.kengur.dtos.response.TaskResponse
 import com.example.kengur.utility.ApiClient
 import com.example.kengur.utility.UtilityFunctions
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_test.*
 import kotlinx.android.synthetic.main.activity_test.view.*
+import kotlinx.android.synthetic.main.dialog_test_result.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,6 +35,8 @@ class TestActivity : AppCompatActivity() {
     private lateinit var testTasks : ArrayList<TaskResponse>
     private var index:Int = 0
     private var answers:ArrayList<Int> = ArrayList()
+
+    private val brojPonudjenihOdgovora = 5
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +51,48 @@ class TestActivity : AppCompatActivity() {
         previousTask()
         nextTask()
         addAnswer()
+        finishTest()
+
+    }
+
+    private fun finishTest() {
+
+        finish.setOnClickListener(){
+
+            var points:Float= 0f
+
+            for(i in answers.indices){
+
+                if(answers[i]==testTasks[i].correctAnswerIndex)
+                    points+=testTasks[i].level
+                else
+                    points-=testTasks[i].level/brojPonudjenihOdgovora
+            }
+
+            if (points<=0f)
+                points=0f
+
+            val dialog = Dialog(this)
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog.setCancelable(false)
+            dialog.setContentView(R.layout.dialog_test_result)
+            dialog.window?.setBackgroundDrawable(Color.TRANSPARENT.toDrawable())
+
+            dialog.show()
+
+            var tvHomePage:TextView = dialog.findViewById(R.id.home_page)
+            var dialogPoints:TextView = dialog.findViewById(R.id.dialog_points)
+
+
+            dialogPoints.text=points.toString()+" poena!"
+
+            tvHomePage.setOnClickListener(){
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+                dialog.dismiss()
+            }
+
+        }
 
     }
 
@@ -165,6 +216,11 @@ class TestActivity : AppCompatActivity() {
             }
             else
             {
+                if(index==testTasks.size-1){
+                    finish.isGone=true
+                    task_next.isGone=false
+                }
+
                 defaultAll()
                 index--
                 if(answers[index]!=-1)
@@ -245,11 +301,11 @@ class TestActivity : AppCompatActivity() {
 
         task_next.setOnClickListener(){
 
-            if(index==testTasks.size-1){
-                Toast.makeText(this,"Nema sledećeg pitanja!",Toast.LENGTH_SHORT)
-            }
-            else
-            {
+                if(index==testTasks.size-2){
+                    finish.isGone=false
+                    task_next.isGone=true
+                }
+
                 defaultAll()
                 index++
                 if(answers[index]!=-1)
@@ -293,7 +349,6 @@ class TestActivity : AppCompatActivity() {
 
                 }
                 generateTask()
-            }
         }
     }
 
