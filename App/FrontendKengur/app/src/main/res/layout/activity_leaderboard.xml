@@ -79,6 +79,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:gravity="center"
                         android:text="Marko Markovic"
+                        android:textSize="@dimen/_11sdp"
                         android:fontFamily="@font/inter_semibold"
                         android:textColor="@color/black"/>
 
@@ -88,6 +89,7 @@
                         android:layout_marginTop="@dimen/_5sdp"
                         android:gravity="center"
                         android:text="74.2 poena"
+                        android:textSize="@dimen/_11sdp"
                         android:fontFamily="@font/inter_medium"
                         android:textColor="@color/black"/>
 
@@ -124,6 +126,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:gravity="center"
                         android:text="Marko Markovic"
+                        android:textSize="@dimen/_11sdp"
                         android:fontFamily="@font/inter_semibold"
                         android:textColor="@color/black"/>
 
@@ -133,6 +136,7 @@
                         android:layout_marginTop="@dimen/_5sdp"
                         android:gravity="center"
                         android:text="74.2 poena"
+                        android:textSize="@dimen/_11sdp"
                         android:fontFamily="@font/inter_medium"
                         android:textColor="@color/black"/>
 
@@ -169,6 +173,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:gravity="center"
                         android:text="Marko Markovic"
+                        android:textSize="@dimen/_11sdp"
                         android:fontFamily="@font/inter_semibold"
                         android:textColor="@color/black"/>
 
@@ -178,6 +183,7 @@
                         android:layout_marginTop="@dimen/_5sdp"
                         android:gravity="center"
                         android:text="74.2 poena"
+                        android:textSize="@dimen/_11sdp"
                         android:fontFamily="@font/inter_medium"
                         android:textColor="@color/black"/>
 
