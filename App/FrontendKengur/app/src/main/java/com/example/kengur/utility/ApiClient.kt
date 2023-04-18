@@ -1,6 +1,7 @@
 package com.example.kengur.utility
 
 import android.content.Context
+import com.example.kengur.services.LeaderboardService
 import com.example.kengur.services.TestService
 import com.example.kengur.services.UserService
 import okhttp3.OkHttpClient
@@ -12,6 +13,7 @@ class ApiClient {
 
     private lateinit var userService: UserService
     private lateinit var testService: TestService
+    private lateinit var leaderboardService: LeaderboardService
 
     private fun okHttpClient(context: Context): OkHttpClient {
         return OkHttpClient.Builder()
@@ -50,5 +52,22 @@ class ApiClient {
         }
         return  testService
     }
+
+    fun getLeaderboardService(context: Context): LeaderboardService {
+
+        if(!::leaderboardService.isInitialized){
+
+            val retrofit = Retrofit.Builder()
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient(context))
+                .build()
+
+            leaderboardService = retrofit.create(LeaderboardService::class.java)
+
+        }
+        return  leaderboardService
+    }
+
 
 }

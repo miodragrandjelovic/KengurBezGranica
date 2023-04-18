@@ -16,8 +16,12 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toDrawable
 import androidx.core.view.isGone
 import com.example.kengur.R
+import com.example.kengur.dtos.request.ResultRequest
+import com.example.kengur.dtos.response.MessageResponse
 import com.example.kengur.dtos.response.TaskResponse
+import com.example.kengur.utility.ActivityTransferStorage
 import com.example.kengur.utility.ApiClient
+import com.example.kengur.utility.SessionManager
 import com.example.kengur.utility.UtilityFunctions
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_home.*
@@ -31,6 +35,7 @@ import retrofit2.Response
 class TestActivity : AppCompatActivity() {
 
     private lateinit var apiClient: ApiClient
+    private lateinit var sessionManager: SessionManager
     private lateinit var Class:String
     private lateinit var testTasks : ArrayList<TaskResponse>
     private var index:Int = 0
@@ -46,6 +51,7 @@ class TestActivity : AppCompatActivity() {
         Class = bundle?.getString("Class")!!
 
         apiClient = ApiClient()
+        sessionManager = SessionManager(this)
 
         generateTest()
         previousTask()
@@ -82,10 +88,65 @@ class TestActivity : AppCompatActivity() {
 
             var tvHomePage:TextView = dialog.findViewById(R.id.home_page)
             var dialogPoints:TextView = dialog.findViewById(R.id.dialog_points)
+            var rankingList:TextView = dialog.findViewById(R.id.ranking_list)
+            var message:TextView = dialog.findViewById(R.id.tv_message)
 
 
             dialogPoints.text=points.toString()+" poena!"
 
+
+            //upisi rezultat u rang listu
+            //mora da se zna: 1)broj poena 2)nivo testa
+            rankingList.setOnClickListener() {
+
+                //ukoliko je korisnik vec obavesten da rezultat ne moze da se upise u rang listu
+                if (!message.isGone) {
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
+                    dialog.dismiss()
+                }
+
+                //u suprotnom proveri
+                else {
+
+                    var context: Context = this
+                    var user = sessionManager.fetchUserData()
+
+                    val resultRequest = ResultRequest(
+                        email = user!!.email,
+                        userClass = Class,
+                        score = points
+                    )
+
+                    apiClient.getLeaderboardService(context).addResult(resultRequest)
+                        .enqueue(object : Callback<MessageResponse> {
+                            override fun onResponse(
+                                call: Call<MessageResponse>,
+                                response: Response<MessageResponse>
+                            ) {
+                                if (response.isSuccessful) {
+
+                                    ActivityTransferStorage.leaderboardScore= resultRequest
+                                    val intent = Intent(context, LeaderboardActivity::class.java)
+                                    startActivity(intent)
+                                    dialog.dismiss()
+                                } else {
+                                    message.isGone = false
+                                }
+
+                            }
+
+                            override fun onFailure(call: Call<MessageResponse>, t: Throwable) {
+                                Toast.makeText(context, "Nesto nije u redu!", Toast.LENGTH_LONG)
+                            }
+
+                        })
+
+
+                }
+            }
+
+            //vrati se na pocetnu stranicu
             tvHomePage.setOnClickListener(){
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)

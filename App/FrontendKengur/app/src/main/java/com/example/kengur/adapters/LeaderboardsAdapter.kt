@@ -16,7 +16,8 @@ class LeaderboardsAdapter (private val leaderboardList:MutableList<LeaderboardRe
 
     class PostViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
-    lateinit var apiClient: ApiClient
+    private lateinit var apiClient: ApiClient
+    private var rank:Int=4
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         apiClient = ApiClient()
@@ -30,8 +31,9 @@ class LeaderboardsAdapter (private val leaderboardList:MutableList<LeaderboardRe
 
         holder.itemView.apply {
 
-            item_l_rank.text = currentResult.rank.toString()
-            Picasso.get().load(UtilityFunctions.getFullImagePath(currentResult.userImage)).into(item_l_image)
+            item_l_rank.text = rank.toString()
+            rank++
+            //Picasso.get().load(UtilityFunctions.getFullImagePath(currentResult.userImage)).into(item_l_image)
             item_l_name.text = currentResult.fullName
             item_l_score.text = currentResult.score.toString()
 
@@ -46,6 +48,7 @@ class LeaderboardsAdapter (private val leaderboardList:MutableList<LeaderboardRe
 
     fun setPostList(leaderboardResponseList: ArrayList<LeaderboardResponse>){
         leaderboardList.clear()
+        rank=4
         leaderboardList.addAll(leaderboardResponseList)
         notifyDataSetChanged()
     }

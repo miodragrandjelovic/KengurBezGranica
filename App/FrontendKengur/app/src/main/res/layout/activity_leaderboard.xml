@@ -74,6 +74,7 @@
                         android:src="@drawable/avatarplaceholder"/>
 
                     <TextView
+                        android:id="@+id/tv_fullname_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
@@ -84,6 +85,7 @@
                         android:textColor="@color/black"/>
 
                     <TextView
+                        android:id="@+id/tv_score_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_5sdp"
@@ -121,6 +123,7 @@
                         android:src="@drawable/avatarplaceholder"/>
 
                     <TextView
+                        android:id="@+id/tv_fullname_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
@@ -131,6 +134,7 @@
                         android:textColor="@color/black"/>
 
                     <TextView
+                        android:id="@+id/tv_score_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_5sdp"
@@ -168,6 +172,7 @@
                         android:src="@drawable/avatarplaceholder"/>
 
                     <TextView
+                        android:id="@+id/tv_fullname_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
@@ -178,6 +183,7 @@
                         android:textColor="@color/black"/>
 
                     <TextView
+                        android:id="@+id/tv_score_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_5sdp"
@@ -302,6 +308,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_leaderboard"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/_15sdp"
