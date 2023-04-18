@@ -84,6 +84,7 @@ builder.Services.AddSwaggerGen(/*options => {
 builder.Services.AddScoped<ISchoolDAL, SchoolDAL>();
 builder.Services.AddTransient<IUserDAL, UserDAL>();
 builder.Services.AddTransient<IAssignmentDAL, AssignmentDAL>();
+builder.Services.AddTransient<ILeaderboardDAL, LeaderboardDAL>();
 
 
 #endregion
@@ -95,6 +96,7 @@ builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IAuthService, AuthService>();
 builder.Services.AddTransient<IAssignmentService, AssignmentService>();
 builder.Services.AddTransient<IFileService, FileService>();
+builder.Services.AddTransient<ILeaderboardService, LeaderboardService>();
 
 #endregion
 
@@ -103,6 +105,7 @@ builder.Services.AddTransient<IFileService, FileService>();
 builder.Services.AddTransient<ISchoolUI, SchoolUI>();
 builder.Services.AddTransient<IUserUI, UserUI>();
 builder.Services.AddTransient<IAssignmentUI, AssignmentUI>();
+builder.Services.AddTransient<ILeaderboardUI, LeaderboardUI>();
 
 #endregion
 

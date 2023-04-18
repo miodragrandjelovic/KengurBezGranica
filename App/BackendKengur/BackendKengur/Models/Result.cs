@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using BackendKengur.DTOComponents;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace BackendKengur.Models
@@ -10,17 +11,14 @@ namespace BackendKengur.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; } = string.Empty;
 
-        [BsonElement("user")]
-        public User? User { get; set; }
+        [BsonElement("userDTO")]
+        public UserLeaderboardDTO? User { get; set; }
 
         [BsonElement("points")]
-        public float Points { get; set; } = 0;
+        public double Points { get; set; } = 0;
 
         [BsonElement("class")]
-        public short Class { get; set; } = 0;
-
-        [BsonElement("date")]
-        public DateTime Date { get; set; } = DateTime.Now;
+        public string Class { get; set; } = string.Empty;
 
     }
 }
