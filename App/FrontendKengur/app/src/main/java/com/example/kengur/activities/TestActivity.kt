@@ -65,7 +65,7 @@ class TestActivity : AppCompatActivity() {
 
         finish.setOnClickListener(){
 
-            var points:Float= 0f
+            var points:Double= 0.0
 
             for(i in answers.indices){
 
@@ -75,8 +75,8 @@ class TestActivity : AppCompatActivity() {
                     points-=testTasks[i].level/brojPonudjenihOdgovora
             }
 
-            if (points<=0f)
-                points=0f
+            if (points<=0.0)
+                points=0.0
 
             val dialog = Dialog(this)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -416,9 +416,16 @@ class TestActivity : AppCompatActivity() {
     private fun generateTest() {
 
         var context: Context = this
-        var number = Class.toInt()
-        if(number>=3 && number%2==1)
-            Class=Class+"-"+(number+1).toString()
+
+        when (Class) {
+            "0" -> Class = "1"
+            "1" -> Class = "2"
+            "2" -> Class = "3-4"
+            "3" -> Class = "5-6"
+            "4" -> Class = "7-8"
+            "5" -> Class = "9-10"
+            "6" -> Class = "11-12"
+        }
 
         apiClient.getTestService(context).generateTest(Class).enqueue(object : Callback<ArrayList<TaskResponse>>{
             override fun onResponse(

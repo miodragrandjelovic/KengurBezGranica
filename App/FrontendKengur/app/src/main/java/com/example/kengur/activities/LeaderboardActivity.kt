@@ -3,6 +3,7 @@ package com.example.kengur.activities
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.SimpleItemAnimator
@@ -49,23 +50,27 @@ class LeaderboardActivity : AppCompatActivity() {
                 call: Call<ArrayList<LeaderboardResponse>>,
                 response: Response<ArrayList<LeaderboardResponse>>
             ) {
+                Log.d("","")
                 if(response.isSuccessful)
                 {
                     var leaderboard = response.body()!!
                     if(leaderboard[0]!=null)
                     {
-                        tv_fullname_1.text=leaderboard[0].fullName
-                        tv_score_1.text=leaderboard[0].score.toString()
+                        val fullName = leaderboard[0].userDTO.firstName+" "+leaderboard[0].userDTO.lastName
+                        tv_fullname_1.text=fullName
+                        tv_score_1.text=leaderboard[0].points.toString()
                     }
                     if(leaderboard[1]!=null)
                     {
-                        tv_fullname_2.text=leaderboard[1].fullName
-                        tv_score_2.text=leaderboard[1].score.toString()
+                        val fullName = leaderboard[1].userDTO.firstName+" "+leaderboard[1].userDTO.lastName
+                        tv_fullname_2.text=fullName
+                        tv_score_2.text=leaderboard[1].points.toString()
                     }
                     if(leaderboard[2]!=null)
                     {
-                        tv_fullname_3.text=leaderboard[2].fullName
-                        tv_score_3.text=leaderboard[2].score.toString()
+                        val fullName = leaderboard[2].userDTO.firstName+" "+leaderboard[2].userDTO.lastName
+                        tv_fullname_3.text=fullName
+                        tv_score_3.text=leaderboard[2].points.toString()
                     }
 
                     leaderboard.removeAt(0)

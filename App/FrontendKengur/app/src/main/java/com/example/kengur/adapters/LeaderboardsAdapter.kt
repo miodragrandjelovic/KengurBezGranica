@@ -34,8 +34,9 @@ class LeaderboardsAdapter (private val leaderboardList:MutableList<LeaderboardRe
             item_l_rank.text = rank.toString()
             rank++
             //Picasso.get().load(UtilityFunctions.getFullImagePath(currentResult.userImage)).into(item_l_image)
-            item_l_name.text = currentResult.fullName
-            item_l_score.text = currentResult.score.toString()
+            val fullName = currentResult.userDTO.firstName+" "+currentResult.userDTO.lastName
+            item_l_name.text = fullName
+            item_l_score.text = currentResult.points.toString()
 
         }
 

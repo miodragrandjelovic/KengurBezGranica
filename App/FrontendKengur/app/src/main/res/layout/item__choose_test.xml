@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_item"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_80sdp"
+    android:layout_margin="@dimen/_5sdp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/test_rectangle"
+    >
+
+    <ImageView
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_65sdp"
+        android:layout_marginLeft="@dimen/_11sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:src="@drawable/logo"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nivo 1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sdp"
+            android:fontFamily="@font/inter_medium"
+            />
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="Za prvi razred osnovne škole"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp"
+            android:fontFamily="@font/inter"
+            />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

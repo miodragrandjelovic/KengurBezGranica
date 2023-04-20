@@ -49,8 +49,7 @@ class HomeActivity : AppCompatActivity() {
     private fun testStart() {
         component_test.setOnClickListener(){
 
-            val intent = Intent(this, TestActivity::class.java)
-            intent.putExtra("Class", tv_class_h.text.toString())
+            val intent = Intent(this, ChooseTestActivity::class.java)
             startActivity(intent)
 
         }

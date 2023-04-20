@@ -6,8 +6,8 @@ data class ResultRequest(
 
     @SerializedName("email")
     var email: String,
-    @SerializedName("score")
-    var score: Float,
+    @SerializedName("points")
+    var score: Double,
     @SerializedName("class")
     var userClass: String
 
