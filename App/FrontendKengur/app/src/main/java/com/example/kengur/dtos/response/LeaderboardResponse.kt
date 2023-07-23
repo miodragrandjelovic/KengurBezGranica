@@ -12,7 +12,7 @@ data class LeaderboardResponse(
     @SerializedName("user")
     var userDTO:UserDTO,
     @SerializedName("points")
-    var points:Float,
+    var points:Double,
     @SerializedName("class")
     var testClass:String
 )

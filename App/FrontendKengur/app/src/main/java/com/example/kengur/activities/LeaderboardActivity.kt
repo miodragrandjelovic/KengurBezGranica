@@ -27,7 +27,7 @@ class LeaderboardActivity : AppCompatActivity() {
     private lateinit var sessionManager: SessionManager
     private lateinit var userResult:ResultRequest
     private lateinit var leaderboardsAdapter: LeaderboardsAdapter
-
+    private var position:Int=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_leaderboard)
@@ -82,6 +82,7 @@ class LeaderboardActivity : AppCompatActivity() {
             }
         }
 
+
         var defaultSelectedPosition=0
         when (userResult.userClass) {
             "1-2" -> defaultSelectedPosition = 0
@@ -106,6 +107,7 @@ class LeaderboardActivity : AppCompatActivity() {
                 if(response.isSuccessful)
                 {
                     var leaderboard = response.body()!!
+
                     if(leaderboard.size>0)
                     {
                         val fullName = leaderboard[0].userDTO.firstName+" "+leaderboard[0].userDTO.lastName

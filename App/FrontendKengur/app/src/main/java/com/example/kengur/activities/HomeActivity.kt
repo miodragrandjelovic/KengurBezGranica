@@ -16,6 +16,8 @@ import kotlinx.android.synthetic.main.popup_menu.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 class HomeActivity : AppCompatActivity() {
 
@@ -44,6 +46,18 @@ class HomeActivity : AppCompatActivity() {
         profileInit()
         testStart()
 
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+
+        profileInit()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        profileInit()
     }
 
     private fun testStart() {
@@ -105,7 +119,9 @@ class HomeActivity : AppCompatActivity() {
                         tv_average_h.text = "0"
                     else {
                         var avg = response.body()!!.sumPoints / response.body()!!.testNumber
-                        tv_average_h.text = avg.toString()
+                        val decimal = BigDecimal(avg.toDouble())
+                        val roundedValue = decimal.setScale(2, RoundingMode.HALF_EVEN)
+                        tv_average_h.text = roundedValue.toString()
                     }
                 }
 

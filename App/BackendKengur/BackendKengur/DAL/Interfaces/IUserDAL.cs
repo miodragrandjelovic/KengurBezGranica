@@ -6,5 +6,6 @@ namespace BackendKengur.DAL.Interfaces
     {
         bool AddNewUser(User user);
         User? GetUser(string email);
+        bool UpdateUser(string email, double points);
     }
 }

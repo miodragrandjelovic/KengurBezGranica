@@ -8,17 +8,19 @@ namespace BackendKengur.DAL
     public class LeaderboardDAL : ILeaderboardDAL
     {
         private IMongoCollection<Result> _results;
+        private IUserDAL _userDAL;
 
-        public LeaderboardDAL(IKengurDatabaseSettings settings, IMongoClient mongoClient)
+        public LeaderboardDAL(IKengurDatabaseSettings settings, IMongoClient mongoClient, IUserDAL userDAL)
         {
             var database = mongoClient.GetDatabase(settings.DatabaseName);
             _results = database.GetCollection<Result>(settings.ResultCollectionName);
+            _userDAL = userDAL;
         }
 
         public bool AddResult(Result result)
         {
             _results.InsertOne(result);
-            return true;
+            return _userDAL.UpdateUser(result.User!.Email, result.Points);
         }
 
         public List<Result> GetLeaderboard(string Class)

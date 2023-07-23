@@ -26,6 +26,19 @@ namespace BackendKengur.DAL
             return true;
         }
 
+        public bool UpdateUser(string email,double points) 
+        {
+            var update = Builders<User>.Update
+            .Inc("testNumber", 1)
+            .Inc("sumPoints", points);
+
+            var updateResult = _user.UpdateOne(u => u.Email == email, update);
+
+            if (updateResult.ModifiedCount > 0)
+                return true;
+            return false;
+        }
+
         public User? GetUser(string email)
         {
             return _user.Find(user=> user.Email.Equals(email)).FirstOrDefault();   
