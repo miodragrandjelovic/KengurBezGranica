@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="razred_array">
+        <item>Razred: 1 – 2</item>
+        <item>Razred: 3 – 4</item>
+        <item>Razred: 5 – 6</item>
+        <item>Razred: 7 – 8</item>
+        <item>Razred: 9 – 10</item>
+        <item>Razred: 11 – 12</item>
+    </string-array>
+
+</resources>

@@ -130,6 +130,7 @@ class TestActivity : AppCompatActivity() {
                                     val intent = Intent(context, LeaderboardActivity::class.java)
                                     startActivity(intent)
                                     dialog.dismiss()
+                                    finish()
                                 } else {
                                     message.isGone = false
                                 }
@@ -151,6 +152,7 @@ class TestActivity : AppCompatActivity() {
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
                 dialog.dismiss()
+                finish()
             }
 
         }

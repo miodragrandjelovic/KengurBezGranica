@@ -1,8 +1,6 @@
 TODO:
 
 1.pri upisu rezultata, korisniku dodati najbolji rezultat, prosecan broj poena itd..
-2.kreirati dropdown na ciji odabir nivoa ce se ucitati rang-lista za taj odabrani nivo
 3.Kada se upise rezultat u rang-listu, uokviri taj rezultat
 OPCIONO vidi kako da se fokusira odnosno skroluje bas na taj rezultat ma koji god on bio na rang-listi
-4.Sa stranice za registraciju dodati clickListener da se predje na login stranicu.
 5.Promeniti layout modala za odabir skole pri registraciji.

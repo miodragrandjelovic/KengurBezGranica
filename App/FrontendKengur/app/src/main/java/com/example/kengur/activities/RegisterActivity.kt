@@ -45,11 +45,19 @@ class RegisterActivity : AppCompatActivity() {
         sessionManager = SessionManager(this)
         ActivityControl.handleUserSignedIn(this,this,sessionManager,savedInstanceState)
 
+        goToLogin()
         setClass()
         searchSchool()
         register()
 
 
+    }
+
+    private fun goToLogin() {
+        ll_login.setOnClickListener(){
+            val intent = Intent (this, LoginActivity::class.java);
+            startActivity(intent);
+        }
     }
 
     override fun onRestart() {
