@@ -232,3 +232,13 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+*.v2
+*.dll
+*.exe
+*.pdb
+*.props
+App/BackendKengur/BackendKengur/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs
+*.cache
+App/BackendKengur/BackendKengur/obj/Debug/net6.0/BackendKengur.csproj.FileListAbsolute.txt
+*.editorconfig
+*.pdb
