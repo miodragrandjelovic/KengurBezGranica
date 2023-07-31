@@ -8,7 +8,9 @@ import android.view.View
 import android.widget.PopupWindow
 import android.widget.Toast
 import com.example.kengur.R
+import com.example.kengur.dtos.request.ResultRequest
 import com.example.kengur.dtos.response.UserResponse
+import com.example.kengur.utility.ActivityTransferStorage
 import com.example.kengur.utility.ApiClient
 import com.example.kengur.utility.SessionManager
 import kotlinx.android.synthetic.main.activity_home.*
@@ -45,6 +47,7 @@ class HomeActivity : AppCompatActivity() {
 
         profileInit()
         testStart()
+        rankListStart()
 
     }
 
@@ -68,6 +71,31 @@ class HomeActivity : AppCompatActivity() {
 
         }
     }
+
+    private fun rankListStart() {
+        component_rank_list.setOnClickListener(){
+
+            var rec=""
+            var broj = tv_class_h.text.toString().toInt()
+            if(broj%2==0)
+                rec=""+(broj-1)+"-"+broj
+            else
+                rec=""+broj+"-"+(broj+1)
+
+            val pom = ResultRequest(
+                email = "",
+                userClass = rec,
+                score = 0.0
+            )
+
+            val intent = Intent(this, LeaderboardActivity::class.java)
+            ActivityTransferStorage.leaderboardScore= pom
+            startActivity(intent)
+
+        }
+    }
+
+
 
     private fun popup() {
 

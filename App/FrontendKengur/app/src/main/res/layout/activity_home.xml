@@ -178,17 +178,18 @@
 
 
         <ImageView
-            android:id="@+id/component_practice"
-            android:layout_width="@dimen/_270sdp"
-            android:layout_height="@dimen/_145sdp"
-            android:background="@drawable/practice_component" />
-
-        <ImageView
             android:id="@+id/component_test"
             android:layout_width="@dimen/_270sdp"
             android:layout_height="@dimen/_145sdp"
-            android:layout_marginTop="@dimen/_50sdp"
             android:background="@drawable/test_component" />
+
+        <ImageView
+            android:id="@+id/component_rank_list"
+            android:layout_width="@dimen/_275sdp"
+            android:layout_height="@dimen/_145sdp"
+            android:layout_marginLeft="-5dp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:background="@drawable/rang_lista_component" />
 
     </LinearLayout>
 
