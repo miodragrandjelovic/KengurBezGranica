@@ -7,5 +7,8 @@ namespace BackendKengur.DAL.Interfaces
         Assignment AddNewAssignment(Assignment assignment);
 
         List<Assignment> GetAssignmentsByClass(string Class);
+
+        List<Assignment> GetTasksFiltered(string Class,int Level);
+        
     }
 }

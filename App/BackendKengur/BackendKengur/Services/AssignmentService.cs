@@ -70,5 +70,24 @@ namespace BackendKengur.Services
             return assignments;
 
         }
+
+        public List<Assignment> GetTasksFiltered(string Class, int Level)
+        {
+            var assignments = assignmentDAL.GetTasksFiltered(Class, Level);
+
+            foreach (var assignment in assignments)
+            {
+                if (assignment.TaskPicture != "")
+                    assignment.TaskPicture = Path.Combine(Constants.Constants.ROOT_FOLDER, assignment.Class, assignment.Level.ToString(), assignment.TaskPicture);
+
+                for (int i = 0; i < assignment.AnswersPictures.Count; i++)
+                {
+                    assignment.AnswersPictures[i] = Path.Combine(Constants.Constants.ROOT_FOLDER, assignment.Class, assignment.Level.ToString(), assignment.AnswersPictures[i]);
+                }
+
+            }
+            return assignments;
+
+        }
     }
 }

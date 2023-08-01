@@ -23,5 +23,10 @@ namespace BackendKengur.UI
         {
             return assignmentService.GetAssignmentsByClass(Class);
         }
+
+        public List<Assignment> GetTasksFiltered(string Class, int Level)
+        {
+           return assignmentService.GetTasksFiltered(Class, Level);
+        }
     }
 }

@@ -4,81 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/_10sdp"
     android:background="@drawable/test_background"
-    tools:context=".activities.TestActivity">
+    tools:context=".activities.PracticeActivity">
 
-    <ImageView
-        android:id="@+id/test_exit"
-        android:layout_width="@dimen/_30sdp"
-        android:layout_height="@dimen/_30sdp"
-        android:layout_marginLeft="@dimen/_10sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="?attr/actionModeCloseDrawable" />
-
-
-    <TextView
-        android:id="@+id/task_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_4sdp"
-        android:fontFamily="@font/inter_medium"
-        android:text="Zadatak 1."
-        android:textColor="@color/black"
-        android:textSize="@dimen/_15sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/task_points"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_4sdp"
-        android:layout_marginRight="@dimen/_11sdp"
-        android:fontFamily="@font/inter_medium"
-        android:text="3 poena"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_15sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <FrameLayout
-        android:id="@+id/frameLayout"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_22sdp"
-        android:layout_marginRight="@dimen/_22sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:background="@drawable/test_bar"
+        android:layout_margin="@dimen/_10sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/task_number">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/progress_bar"
-            android:layout_width="@dimen/_21sdp"
-            android:layout_height="@dimen/_8sdp"
-            android:layout_marginLeft="-1dp"
-            android:background="@drawable/radius_dark_blue"
+            android:id="@+id/test_exit"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="?attr/actionModeCloseDrawable" />
 
-            />
-    </FrameLayout>
+        <Spinner
+            android:id="@+id/spinnerRazred"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:entries="@array/razred_array" />
+
+        <Spinner
+            android:id="@+id/spinnerNivo"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:entries="@array/vrednost_zadatka_array" />
+
+    </LinearLayout>
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_460sdp"
+        android:layout_height="@dimen/_480sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
         android:background="@drawable/radius"
         android:paddingBottom="@dimen/_1sdp"
-        app:layout_constraintBottom_toTopOf="@+id/task_previous"
+        app:layout_constraintBottom_toTopOf="@+id/task_next_p"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -88,7 +63,7 @@
             android:padding="@dimen/_15sdp">
 
             <TextView
-                android:id="@+id/task_text"
+                android:id="@+id/task_text_p"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:justificationMode="inter_word"
@@ -98,7 +73,7 @@
                 />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cv_task_picture"
+                android:id="@+id/cv_task_picture_p"
                 android:layout_width="@dimen/_110sdp"
                 android:layout_height="@dimen/_110sdp"
                 android:layout_marginTop="@dimen/_7sdp"
@@ -114,7 +89,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/answer_1"
+                android:id="@+id/answer_1_p"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="@dimen/_12sdp"
@@ -122,13 +97,13 @@
 
 
                 <FrameLayout
-                    android:id="@+id/fl_1"
+                    android:id="@+id/fl_1_p"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
                     android:background="@color/gray">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/mcv_A"
+                        android:id="@+id/mcv_A_p"
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_gravity="center_vertical"
@@ -138,7 +113,7 @@
                         app:strokeWidth="@dimen/_1sdp">
 
                         <TextView
-                            android:id="@+id/tv_A"
+                            android:id="@+id/tv_A_p"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/gray"
@@ -151,7 +126,7 @@
 
 
                     <TextView
-                        android:id="@+id/answer_text_1"
+                        android:id="@+id/answer_text_1_p"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -161,14 +136,14 @@
                         android:visibility="gone" />
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_answer_picture_1"
+                        android:id="@+id/cv_answer_picture_1_p"
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
                         android:layout_gravity="center"
                         app:cardCornerRadius="@dimen/_10sdp">
 
                         <ImageView
-                            android:id="@+id/answer_picture_1"
+                            android:id="@+id/answer_picture_1_p"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:padding="@dimen/_2sdp"
@@ -184,7 +159,7 @@
             <!--prvi odgovor-->
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/answer_2"
+                android:id="@+id/answer_2_p"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="@dimen/_12sdp"
@@ -192,13 +167,13 @@
 
 
                 <FrameLayout
-                    android:id="@+id/fl_2"
+                    android:id="@+id/fl_2_p"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
                     android:background="@color/gray">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/mcv_B"
+                        android:id="@+id/mcv_B_p"
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_gravity="center_vertical"
@@ -208,7 +183,7 @@
                         app:strokeWidth="@dimen/_1sdp">
 
                         <TextView
-                            android:id="@+id/tv_B"
+                            android:id="@+id/tv_B_p"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/gray"
@@ -221,7 +196,7 @@
 
 
                     <TextView
-                        android:id="@+id/answer_text_2"
+                        android:id="@+id/answer_text_2_p"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -230,7 +205,7 @@
                         android:textSize="@dimen/_12sdp" />
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_answer_picture_2"
+                        android:id="@+id/cv_answer_picture_2_p"
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
                         android:layout_gravity="center"
@@ -238,7 +213,7 @@
                         app:cardCornerRadius="@dimen/_10sdp">
 
                         <ImageView
-                            android:id="@+id/answer_picture_2"
+                            android:id="@+id/answer_picture_2_p"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:padding="@dimen/_2sdp"
@@ -254,7 +229,7 @@
             <!--drugi odgovor-->
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/answer_3"
+                android:id="@+id/answer_3_p"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="@dimen/_12sdp"
@@ -262,13 +237,13 @@
 
 
                 <FrameLayout
-                    android:id="@+id/fl_3"
+                    android:id="@+id/fl_3_p"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
                     android:background="@color/gray">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/mcv_V"
+                        android:id="@+id/mcv_V_p"
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_gravity="center_vertical"
@@ -278,7 +253,7 @@
                         app:strokeWidth="@dimen/_1sdp">
 
                         <TextView
-                            android:id="@+id/tv_V"
+                            android:id="@+id/tv_V_p"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/gray"
@@ -291,7 +266,7 @@
 
 
                     <TextView
-                        android:id="@+id/answer_text_3"
+                        android:id="@+id/answer_text_3_p"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -300,7 +275,7 @@
                         android:textSize="@dimen/_12sdp" />
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_answer_picture_3"
+                        android:id="@+id/cv_answer_picture_3_p"
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
                         android:layout_gravity="center"
@@ -308,7 +283,7 @@
                         app:cardCornerRadius="@dimen/_10sdp">
 
                         <ImageView
-                            android:id="@+id/answer_picture_3"
+                            android:id="@+id/answer_picture_3_p"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:padding="@dimen/_2sdp"
@@ -324,7 +299,7 @@
             <!--treci odgovor-->
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/answer_4"
+                android:id="@+id/answer_4_p"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="@dimen/_12sdp"
@@ -332,13 +307,13 @@
 
 
                 <FrameLayout
-                    android:id="@+id/fl_4"
+                    android:id="@+id/fl_4_p"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
                     android:background="@color/gray">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/mcv_G"
+                        android:id="@+id/mcv_G_p"
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_gravity="center_vertical"
@@ -348,7 +323,7 @@
                         app:strokeWidth="@dimen/_1sdp">
 
                         <TextView
-                            android:id="@+id/tv_G"
+                            android:id="@+id/tv_G_p"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/gray"
@@ -361,7 +336,7 @@
 
 
                     <TextView
-                        android:id="@+id/answer_text_4"
+                        android:id="@+id/answer_text_4_p"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -370,7 +345,7 @@
                         android:textSize="@dimen/_12sdp" />
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_answer_picture_4"
+                        android:id="@+id/cv_answer_picture_4_p"
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
                         android:layout_gravity="center"
@@ -378,7 +353,7 @@
                         app:cardCornerRadius="@dimen/_10sdp">
 
                         <ImageView
-                            android:id="@+id/answer_picture_4"
+                            android:id="@+id/answer_picture_4_p"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:padding="@dimen/_2sdp"
@@ -394,7 +369,7 @@
             <!--cetvrti odgovor-->
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/answer_5"
+                android:id="@+id/answer_5_p"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="@dimen/_12sdp"
@@ -402,13 +377,13 @@
 
 
                 <FrameLayout
-                    android:id="@+id/fl_5"
+                    android:id="@+id/fl_5_p"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
                     android:background="@color/gray">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/mcv_D"
+                        android:id="@+id/mcv_D_p"
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_gravity="center_vertical"
@@ -418,7 +393,7 @@
                         app:strokeWidth="@dimen/_1sdp">
 
                         <TextView
-                            android:id="@+id/tv_D"
+                            android:id="@+id/tv_D_p"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/gray"
@@ -431,7 +406,7 @@
 
 
                     <TextView
-                        android:id="@+id/answer_text_5"
+                        android:id="@+id/answer_text_5_p"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -440,7 +415,7 @@
                         android:textSize="@dimen/_12sdp" />
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_answer_picture_5"
+                        android:id="@+id/cv_answer_picture_5_p"
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
                         android:layout_gravity="center"
@@ -448,7 +423,7 @@
                         app:cardCornerRadius="@dimen/_10sdp">
 
                         <ImageView
-                            android:id="@+id/answer_picture_5"
+                            android:id="@+id/answer_picture_5_p"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:padding="@dimen/_2sdp"
@@ -468,52 +443,23 @@
     </ScrollView>
 
     <TextView
-        android:id="@+id/task_previous"
+        android:id="@+id/task_next_p"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
         android:background="@drawable/test_button"
-        android:gravity="center"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_20sdp"
         android:fontFamily="@font/inter_medium"
-        android:text="Prethodno"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_13sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <TextView
-        android:id="@+id/task_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/test_button"
         android:gravity="center"
-        android:layout_marginRight="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_20sdp"
-        android:fontFamily="@font/inter_medium"
-        android:text="Naredno"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_13sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/finish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/test_button"
-        android:gravity="center"
-        android:layout_marginRight="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_20sdp"
-        android:fontFamily="@font/inter_medium"
-        android:text="Predaj test"
+        android:paddingLeft="@dimen/_10sdp"
+        android:paddingRight="@dimen/_10sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:text="Naredni zadatak"
         android:textColor="@color/white"
         android:textSize="@dimen/_13sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"
-        />
-
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

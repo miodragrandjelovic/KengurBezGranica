@@ -32,5 +32,12 @@ namespace BackendKengur.Controllers
             return Ok(assignments);
         }
 
+        [HttpGet("GetTasksFiltered/{Class}/{Level}")]
+        public async Task<IActionResult> GetTasksFiltered(string Class,int Level)
+        {
+            var assignments = assignmentUI.GetTasksFiltered(Class,Level);
+            return Ok(assignments);
+        }
+
     }
 }

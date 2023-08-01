@@ -10,4 +10,10 @@
         <item>Razred: 11 – 12</item>
     </string-array>
 
+    <string-array name="vrednost_zadatka_array">
+        <item>3 poena</item>
+        <item>4 poena</item>
+        <item>5 poena</item>
+    </string-array>
+
 </resources>

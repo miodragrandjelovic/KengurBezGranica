@@ -41,8 +41,6 @@ class TestActivity : AppCompatActivity() {
     private var index:Int = 0
     private var answers:ArrayList<Int> = ArrayList()
 
-    private val brojPonudjenihOdgovora = 5
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
@@ -72,7 +70,7 @@ class TestActivity : AppCompatActivity() {
                 if(answers[i]==testTasks[i].correctAnswerIndex)
                     points+=testTasks[i].level
                 else
-                    points-=testTasks[i].level/brojPonudjenihOdgovora
+                    points-=testTasks[i].level/4
             }
 
             if (points<=0.0)

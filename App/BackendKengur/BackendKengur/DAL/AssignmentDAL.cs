@@ -26,5 +26,10 @@ namespace BackendKengur.DAL
         {
             return _assignments.Find(assignment => Class.Equals(assignment.Class)).ToList();
         }
+
+        public List<Assignment> GetTasksFiltered(string Class, int Level)
+        {
+            return _assignments.Find(assignment => Class.Equals(assignment.Class) && Level == assignment.Level).ToList();
+        }
     }
 }

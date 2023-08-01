@@ -10,6 +10,8 @@
     <color name ="input_plava">#4E7EAB</color>
     <color name ="shadow">#242424</color>
     <color name ="dark_blue">#18397D</color>
+    <color name ="green">#4CAF50</color>
+    <color name ="red">#EF1404</color>
     <color name="dark_gray">#131317</color>
     <color name="gray">#D9D9D9</color>
     <color name="black_transparent_70">#B3000000</color>
