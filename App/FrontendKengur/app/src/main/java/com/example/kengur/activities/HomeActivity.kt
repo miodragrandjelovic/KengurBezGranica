@@ -46,9 +46,15 @@ class HomeActivity : AppCompatActivity() {
         sessionManager = SessionManager(this)
 
         profileInit()
+        practiceStart()
         testStart()
         rankListStart()
 
+    }
+
+    private fun practiceStart() {
+        val intent = Intent (this, PracticeActivity::class.java);
+        startActivity(intent);
     }
 
     override fun onRestart() {

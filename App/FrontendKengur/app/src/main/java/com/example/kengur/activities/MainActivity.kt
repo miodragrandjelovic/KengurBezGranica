@@ -24,11 +24,6 @@ class MainActivity : AppCompatActivity() {
         goToLogin()
         goToRegister()
 
-        button.setOnClickListener(){
-            val intent = Intent (this, PracticeActivity::class.java);
-            startActivity(intent);
-        }
-
     }
 
     override fun onRestart() {

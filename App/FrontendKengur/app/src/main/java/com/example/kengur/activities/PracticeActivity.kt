@@ -28,7 +28,7 @@ class PracticeActivity : AppCompatActivity() {
     private lateinit var apiClient: ApiClient
     private lateinit var sessionManager: SessionManager
 
-    private var selectedClass:String="1-2"
+    private var selectedClass:String="9-10"
     private var selectedLevel:Int=3
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,8 +55,6 @@ class PracticeActivity : AppCompatActivity() {
 
         spinnerRazred.adapter = adapter
 
-        val context = this
-
         spinnerRazred.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -72,7 +70,7 @@ class PracticeActivity : AppCompatActivity() {
                     4 -> selectedClass = "9-10"
                     5 -> selectedClass = "11-12"
                 }
-               // getTasksFiltered()
+                getTasksFiltered()
 
 
             }
@@ -81,6 +79,9 @@ class PracticeActivity : AppCompatActivity() {
 
             }
         }
+        var defaultSelectedPosition=4
+
+        spinnerRazred.setSelection(defaultSelectedPosition)
     }
 
     private fun spinnerLevelInit() {
@@ -91,8 +92,6 @@ class PracticeActivity : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
 
         spinnerNivo.adapter = adapter
-
-        val context = this
 
         spinnerNivo.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -120,7 +119,7 @@ class PracticeActivity : AppCompatActivity() {
     private fun getTasksFiltered() {
 
         var context:Context = this
-        apiClient.getTestService(context).getFilteredTasks(selectedClass,selectedLevel).enqueue(object : Callback<ArrayList<TaskResponse>>{
+        apiClient.getTestService(context).getTasksFiltered(selectedClass,selectedLevel).enqueue(object : Callback<ArrayList<TaskResponse>>{
             override fun onResponse(
                 call: Call<ArrayList<TaskResponse>>,
                 response: Response<ArrayList<TaskResponse>>
@@ -128,6 +127,9 @@ class PracticeActivity : AppCompatActivity() {
                 if(response.isSuccessful)
                 {
                     tasks = response.body()!!
+                    defaultAll()
+                    index=0
+                    task_next_p.isGone=false
                     generateTask()
                 }
             }
