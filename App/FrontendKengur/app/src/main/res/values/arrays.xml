@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string-array name="razred_registracija_array">
+        <item>Razred</item>
+        <item>1. Razred</item>
+        <item>2. Razred</item>
+        <item>3. Razred</item>
+        <item>4. Razred</item>
+        <item>5. Razred</item>
+        <item>6. Razred</item>
+        <item>7. Razred</item>
+        <item>8. Razred</item>
+        <item>9. Razred</item>
+        <item>10. Razred</item>
+        <item>11. Razred</item>
+        <item>12. Razred</item>
+    </string-array>
+
+    <string-array name="pol_array">
+        <item>Pol</item>
+        <item>Muški</item>
+        <item>Ženski</item>
+    </string-array>
+
+    <string-array name="ocena_array">
+        <item>Ocena iz matematike</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
     <string-array name="razred_array">
         <item>Razred: 1 – 2</item>
         <item>Razred: 3 – 4</item>

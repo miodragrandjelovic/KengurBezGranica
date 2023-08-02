@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">KengurBezGranica</string>
 
+    <string name="underline_prijavi_se"><u>Prijavi se</u></string>
+    <string name="underline_registruj_se"><u>Registruj se</u></string>
+
     <string name="underline_dialog_test"><u>Vrati se na početnu stranu</u></string>
 </resources>

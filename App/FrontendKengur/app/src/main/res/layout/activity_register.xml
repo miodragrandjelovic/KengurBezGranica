@@ -8,67 +8,57 @@
     tools:context=".activities.RegisterActivity">
 
 
-    <LinearLayout
+
+<!--    <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="@dimen/_150sdp"
-            android:layout_marginTop="@dimen/_39sdp"
-            android:background="@drawable/logo" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:fontFamily="@font/inter_semibold"
-            android:text="Kengur bez granica"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_25sdp" />
-
-    </LinearLayout>
-
-
-   <!-- <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/registerpanel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">-->
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ll_login"
+        >-->
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_390sdp"
         android:background="@drawable/registerpanel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:gravity="center"
         android:orientation="vertical"
         android:paddingLeft="@dimen/_7sdp"
-        android:paddingTop="@dimen/_34sdp"
         android:paddingRight="@dimen/_7sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_130sdp"
+            android:layout_gravity="center"
+            android:background="@drawable/logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Kengur bez granica"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_25sdp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50sdp"
             android:orientation="horizontal">
 
             <EditText
@@ -81,8 +71,8 @@
                 android:paddingLeft="@dimen/_15sdp"
                 android:paddingBottom="@dimen/_7sdp"
                 android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/_15sdp" />
 
             <View
                 android:layout_width="0dp"
@@ -99,8 +89,8 @@
                 android:paddingLeft="@dimen/_15sdp"
                 android:paddingBottom="@dimen/_7sdp"
                 android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/_15sdp" />
 
         </LinearLayout>
 
@@ -116,37 +106,8 @@
             android:paddingLeft="@dimen/_15sdp"
             android:paddingBottom="@dimen/_7sdp"
             android:singleLine="true"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
-
-        <FrameLayout
-            android:id="@+id/fl_school"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_38sdp"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:background="@drawable/input_field_huge"
-                android:paddingLeft="@dimen/_15sdp"
-                android:paddingBottom="@dimen/_7sdp" />
-
-            <TextView
-                android:id="@+id/tv_school"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/inter"
-                android:gravity="center_vertical"
-                android:paddingLeft="@dimen/_15sdp"
-                android:text="Škola"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="@dimen/_15sdp" />
-
-
-        </FrameLayout>
+            android:textColorHint="@color/white"
+            android:textSize="@dimen/_15sdp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -154,33 +115,62 @@
             android:layout_marginTop="@dimen/_7sdp"
             android:orientation="horizontal">
 
-            <FrameLayout
-                android:id="@+id/fl_class"
+            <Spinner
+                android:id="@+id/spinnerPol"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_39sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/input_field"
+                android:entries="@array/razred_array"
+                android:paddingLeft="@dimen/_15sdp"
+                android:paddingBottom="@dimen/_7sdp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Spinner
+                android:id="@+id/spinnerOcena"
+                android:layout_width="@dimen/_180sdp"
+                android:layout_height="@dimen/_39sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/input_field"
+                android:entries="@array/razred_array"
+                android:paddingLeft="@dimen/_15sdp"
+                android:paddingBottom="@dimen/_7sdp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_school"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_39sdp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:background="@drawable/input_field_huge"
+            android:fontFamily="@font/inter_bold"
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:singleLine="true"
+            android:text="Škola"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spinnerRazred"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_38sdp"
-                    android:background="@drawable/input_field"
-                    android:paddingLeft="@dimen/_15sdp"
-                    android:paddingBottom="@dimen/_7sdp" />
-
-                <TextView
-                    android:id="@+id/tv_class"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/inter"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/_15sdp"
-                    android:paddingTop="@dimen/_4sdp"
-                    android:text="Razred"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_15sdp" />
-
-
-            </FrameLayout>
+                android:layout_height="@dimen/_39sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/input_field"
+                android:entries="@array/razred_array"
+                android:paddingLeft="@dimen/_15sdp"
+                android:paddingBottom="@dimen/_7sdp" />
 
             <View
                 android:layout_width="0dp"
@@ -190,18 +180,16 @@
             <EditText
                 android:id="@+id/et_mesto"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_38sdp"
+                android:layout_height="@dimen/_39sdp"
                 android:background="@drawable/input_field"
                 android:fontFamily="@font/inter"
                 android:hint="Mesto rođenja"
                 android:paddingLeft="@dimen/_15sdp"
                 android:paddingBottom="@dimen/_7sdp"
                 android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
-
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/_15sdp" />
         </LinearLayout>
-
 
         <EditText
             android:id="@+id/et_sifra"
@@ -210,58 +198,56 @@
             android:layout_marginTop="@dimen/_7sdp"
             android:background="@drawable/input_field_huge"
             android:fontFamily="@font/inter"
-            android:hint="Šifra"
+            android:hint="Password"
             android:inputType="textPassword"
             android:paddingLeft="@dimen/_15sdp"
             android:paddingBottom="@dimen/_7sdp"
             android:singleLine="true"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColorHint="@color/white"
+            android:textSize="@dimen/_15sdp" />
 
         <TextView
             android:id="@+id/tv_register"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_gravity="center"
             android:layout_marginTop="@dimen/_9sdp"
-            android:paddingBottom="@dimen/_5sdp"
+            android:background="@drawable/bign_btn"
             android:fontFamily="@font/inter_medium"
             android:gravity="center"
-            android:layout_gravity="center"
+            android:paddingBottom="@dimen/_7sdp"
             android:text="Registruj se"
             android:textColor="@color/white"
-            android:textSize="@dimen/_15sdp"
-            android:background="@drawable/bign_btn"/>
+            android:textSize="@dimen/_18sdp" />
 
         <LinearLayout
             android:id="@+id/ll_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_7sdp"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:padding="@dimen/_7sdp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vec imaš nalog?"
                 android:fontFamily="@font/inter"
-                android:textColor="@color/white"
-                />
+                android:text="Vec imaš nalog?"
+                android:textColor="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_2sdp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Prijavi se"
+                android:text="@string/underline_prijavi_se"
                 android:textColor="@color/white" />
         </LinearLayout>
 
     </LinearLayout>
+<!--    </ScrollView>-->
 
 
 
-
-  <!--  </ScrollView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

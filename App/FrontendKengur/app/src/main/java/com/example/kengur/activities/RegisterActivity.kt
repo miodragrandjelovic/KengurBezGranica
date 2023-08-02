@@ -1,5 +1,6 @@
 package com.example.kengur.activities
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
@@ -7,6 +8,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.Window
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
@@ -33,9 +35,10 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var apiClient: ApiClient
     lateinit var sessionManager:SessionManager
     private var schoolList: java.util.ArrayList<String> = java.util.ArrayList<String>()
-    private var classList = arrayOf(
-        "1. razred","2. razred","3. razred","4. razred","5. razred","6. razred","7. razred","8. razred","9. razred","10. razred","11. razred","12. razred"
-    )
+
+    private var selectedClass:Short=1
+    private var selectedGender:Short=0
+    private var selectedGrade:Short=1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,8 +48,12 @@ class RegisterActivity : AppCompatActivity() {
         sessionManager = SessionManager(this)
         ActivityControl.handleUserSignedIn(this,this,sessionManager,savedInstanceState)
 
+
+        spinnerClassInit()
+        spinnerGradeInit()
+        spinnerGenderInit()
+
         goToLogin()
-        setClass()
         searchSchool()
         register()
 
@@ -67,6 +74,109 @@ class RegisterActivity : AppCompatActivity() {
     }
 
 
+    private fun spinnerClassInit() {
+        val razredArray = resources.getStringArray(R.array.razred_registracija_array)
+
+        val adapter = ArrayAdapter(this, R.layout.registration_spinner_item, razredArray)
+
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
+
+        spinnerRazred.adapter = adapter
+
+        spinnerRazred.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: android.view.View?,
+                position: Int,
+                id: Long
+            ) {
+                when (position) {
+                    0 -> selectedClass = 1
+                    1 -> selectedClass = 2
+                    2 -> selectedClass = 3
+                    3 -> selectedClass = 4
+                    4 -> selectedClass = 5
+                    5 -> selectedClass = 6
+                    6 -> selectedClass = 7
+                    7 -> selectedClass = 8
+                    8 -> selectedClass = 9
+                    9 -> selectedClass = 10
+                    10 -> selectedClass = 11
+                    11 -> selectedClass = 12
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+        }
+    }
+    private fun spinnerGenderInit() {
+        val genderArray = resources.getStringArray(R.array.pol_array)
+
+        val adapter = ArrayAdapter(this, R.layout.registration_spinner_item, genderArray)
+
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
+
+        spinnerPol.adapter = adapter
+
+        spinnerPol.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: android.view.View?,
+                position: Int,
+                id: Long
+            ) {
+                when (position) {
+                    0 -> selectedGender = 0
+                    1 -> selectedGender = 1
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+        }
+    }
+
+    private fun spinnerGradeInit() {
+        val gradeArray = resources.getStringArray(R.array.ocena_array)
+
+        val adapter = ArrayAdapter(this, R.layout.registration_spinner_item, gradeArray)
+
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
+
+        spinnerOcena.adapter = adapter
+
+        spinnerPol.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: android.view.View?,
+                position: Int,
+                id: Long
+            ) {
+                when (position) {
+                    0 -> selectedGrade = 1
+                    1 -> selectedGrade = 2
+                    2 -> selectedGrade = 3
+                    3 -> selectedGrade = 4
+                    4 -> selectedGrade = 5
+
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+        }
+
+
+    }
+
+
+
     private fun register() {
 
         tv_register.setOnClickListener(){
@@ -75,27 +185,19 @@ class RegisterActivity : AppCompatActivity() {
             val prezime = et_prezime.text.toString()
             val email = et_email.text.toString()
             val skola = tv_school.text.toString()
-            val razred_txt = tv_class.text.toString()
+            val razred = selectedClass
             val mesto = et_mesto.text.toString()
             val sifra = et_sifra.text.toString()
-            var razred:Short=0
 
-            if(ime!="" && prezime!="" && email!="" && skola!="Školaa" && razred_txt!="Razred" && mesto!="" && sifra!="")
+            if(ime!="" && prezime!="" && email!="" && skola!="Škola"  && mesto!="" && sifra!="")
             {
-
-                for (i in classList.indices) {
-                    if(classList[i]==razred_txt){
-                        razred = i.toShort()
-                        break
-                    }
-                }
 
                 var registerDTO = RegisterRequest(
                     firstName = ime,
                     lastName = prezime,
                     email = email,
                     school = skola,
-                    userClass = ++razred,
+                    userClass = razred,
                     password = sifra
                 )
 
@@ -128,32 +230,9 @@ class RegisterActivity : AppCompatActivity() {
 
     }
 
-    private fun setClass() {
-
-        fl_class.setOnClickListener(){
-
-            val dialog = Dialog(this)
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog.setCancelable(true)
-            dialog.setContentView(R.layout.dialog_class)
-            dialog.window?.setBackgroundDrawable(Color.TRANSPARENT.toDrawable())
-
-            var listView: ListView = dialog.findViewById(R.id.list_view_classes)
-            var classListAdapter: ArrayAdapter<String> = ArrayAdapter<String>(dialog.context, R.layout.item_search_school, classList)
-            listView.adapter = classListAdapter
-
-            dialog.show()
-
-            listView.setOnItemClickListener { parent, view, position, id ->
-                tv_class.text = classListAdapter.getItem(position).toString()
-                dialog.dismiss()
-            }
-        }
-    }
-
     private fun searchSchool() {
 
-        fl_school.setOnClickListener(){
+        tv_school.setOnClickListener(){
 
             val dialog = Dialog(this)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
