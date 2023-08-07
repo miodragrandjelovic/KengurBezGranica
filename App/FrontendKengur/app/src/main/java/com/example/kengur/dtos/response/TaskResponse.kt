@@ -3,6 +3,8 @@ package com.example.kengur.dtos.response
 import com.google.gson.annotations.SerializedName
 
 data class TaskResponse(
+    @SerializedName("id")
+    var id: String,
     @SerializedName("taskText")
     var taskText: String,
     @SerializedName("taskPicture")

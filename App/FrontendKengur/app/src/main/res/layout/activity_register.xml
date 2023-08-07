@@ -8,34 +8,11 @@
     tools:context=".activities.RegisterActivity">
 
 
-
-<!--    <ScrollView
-        android:id="@+id/scrollView3"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/ll_login"
-        >-->
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_390sdp"
-        android:background="@drawable/registerpanel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/_7sdp"
-        android:paddingRight="@dimen/_7sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -50,199 +27,215 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:fontFamily="@font/inter_semibold"
             android:text="Kengur bez granica"
             android:textColor="@color/white"
             android:textSize="@dimen/_25sdp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_50sdp"
-            android:orientation="horizontal">
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/registerpanel"
+        android:paddingLeft="@dimen/_7sdp"
+        android:paddingRight="@dimen/_7sdp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_ime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_39sdp"
+                    android:background="@drawable/input_field"
+                    android:fontFamily="@font/inter"
+                    android:hint="Ime"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:paddingBottom="@dimen/_7sdp"
+                    android:singleLine="true"
+                    android:textColorHint="@color/white"
+                    android:textSize="@dimen/_15sdp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:id="@+id/et_prezime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_39sdp"
+                    android:background="@drawable/input_field"
+                    android:fontFamily="@font/inter"
+                    android:hint="Prezime"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:paddingBottom="@dimen/_7sdp"
+                    android:singleLine="true"
+                    android:textColorHint="@color/white"
+                    android:textSize="@dimen/_15sdp" />
+
+            </LinearLayout>
 
             <EditText
-                android:id="@+id/et_ime"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_39sdp"
-                android:background="@drawable/input_field"
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:background="@drawable/input_field_huge"
                 android:fontFamily="@font/inter"
-                android:hint="Ime"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
                 android:paddingLeft="@dimen/_15sdp"
                 android:paddingBottom="@dimen/_7sdp"
                 android:singleLine="true"
                 android:textColorHint="@color/white"
                 android:textSize="@dimen/_15sdp" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/et_prezime"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_39sdp"
-                android:background="@drawable/input_field"
-                android:fontFamily="@font/inter"
-                android:hint="Prezime"
-                android:paddingLeft="@dimen/_15sdp"
-                android:paddingBottom="@dimen/_7sdp"
-                android:singleLine="true"
-                android:textColorHint="@color/white"
-                android:textSize="@dimen/_15sdp" />
+                <Spinner
+                    android:id="@+id/spinnerPol"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_39sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/input_field"
+                    android:entries="@array/pol_array"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:paddingBottom="@dimen/_7sdp" />
 
-        </LinearLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
 
-        <EditText
-            android:id="@+id/et_email"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_38sdp"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:background="@drawable/input_field_huge"
-            android:fontFamily="@font/inter"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="@dimen/_15sdp"
-            android:paddingBottom="@dimen/_7sdp"
-            android:singleLine="true"
-            android:textColorHint="@color/white"
-            android:textSize="@dimen/_15sdp" />
+                <Spinner
+                    android:id="@+id/spinnerOcena"
+                    android:layout_width="@dimen/_180sdp"
+                    android:layout_height="@dimen/_39sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/input_field"
+                    android:entries="@array/ocena_array"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:paddingBottom="@dimen/_7sdp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:orientation="horizontal">
-
-            <Spinner
-                android:id="@+id/spinnerPol"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_39sdp"
-                android:layout_gravity="center"
-                android:background="@drawable/input_field"
-                android:entries="@array/pol_array"
-                android:paddingLeft="@dimen/_15sdp"
-                android:paddingBottom="@dimen/_7sdp" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <Spinner
-                android:id="@+id/spinnerOcena"
-                android:layout_width="@dimen/_180sdp"
-                android:layout_height="@dimen/_39sdp"
-                android:layout_gravity="center"
-                android:background="@drawable/input_field"
-                android:entries="@array/ocena_array"
-                android:paddingLeft="@dimen/_15sdp"
-                android:paddingBottom="@dimen/_7sdp" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_school"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_39sdp"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:background="@drawable/input_field_huge"
-            android:fontFamily="@font/inter_bold"
-            android:paddingLeft="@dimen/_15sdp"
-            android:paddingTop="@dimen/_5sdp"
-            android:singleLine="true"
-            android:text="Škola"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_15sdp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:orientation="horizontal">
-
-            <Spinner
-                android:id="@+id/spinnerRazred"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_39sdp"
-                android:layout_gravity="center"
-                android:background="@drawable/input_field"
-                android:entries="@array/razred_registracija_array"
-                android:paddingLeft="@dimen/_15sdp"
-                android:paddingBottom="@dimen/_7sdp" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <EditText
-                android:id="@+id/et_mesto"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_39sdp"
-                android:background="@drawable/input_field"
-                android:fontFamily="@font/inter"
-                android:hint="Mesto rođenja"
-                android:paddingLeft="@dimen/_15sdp"
-                android:paddingBottom="@dimen/_7sdp"
-                android:singleLine="true"
-                android:textColorHint="@color/white"
-                android:textSize="@dimen/_15sdp" />
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/et_sifra"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_38sdp"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:background="@drawable/input_field_huge"
-            android:fontFamily="@font/inter"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:paddingLeft="@dimen/_15sdp"
-            android:paddingBottom="@dimen/_7sdp"
-            android:singleLine="true"
-            android:textColorHint="@color/white"
-            android:textSize="@dimen/_15sdp" />
-
-        <TextView
-            android:id="@+id/tv_register"
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="@dimen/_42sdp"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_9sdp"
-            android:background="@drawable/bign_btn"
-            android:fontFamily="@font/inter_medium"
-            android:gravity="center"
-            android:paddingBottom="@dimen/_7sdp"
-            android:text="Registruj se"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_18sdp" />
-
-        <LinearLayout
-            android:id="@+id/ll_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="@dimen/_7sdp">
+            </LinearLayout>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
-                android:text="Vec imaš nalog?"
-                android:textColor="@color/white" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
+                android:id="@+id/tv_school"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_39sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:background="@drawable/input_field_huge"
                 android:fontFamily="@font/inter_bold"
-                android:text="@string/underline_prijavi_se"
-                android:textColor="@color/white" />
-        </LinearLayout>
+                android:paddingLeft="@dimen/_15sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:singleLine="true"
+                android:text="Škola"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinnerRazred"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_39sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/input_field"
+                    android:entries="@array/razred_registracija_array"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:paddingBottom="@dimen/_7sdp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:id="@+id/et_mesto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_39sdp"
+                    android:background="@drawable/input_field"
+                    android:fontFamily="@font/inter"
+                    android:hint="Mesto rođenja"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:paddingBottom="@dimen/_7sdp"
+                    android:singleLine="true"
+                    android:textColorHint="@color/white"
+                    android:textSize="@dimen/_15sdp" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/et_sifra"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:background="@drawable/input_field_huge"
+                android:fontFamily="@font/inter"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingLeft="@dimen/_15sdp"
+                android:paddingBottom="@dimen/_7sdp"
+                android:singleLine="true"
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:id="@+id/tv_register"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:background="@drawable/bign_btn"
+                android:fontFamily="@font/inter_medium"
+                android:gravity="center"
+                android:paddingBottom="@dimen/_7sdp"
+                android:text="Registruj se"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18sdp" />
+
+            <LinearLayout
+                android:id="@+id/ll_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/_7sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:text="Vec imaš nalog?"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="@string/underline_prijavi_se"
+                    android:textColor="@color/white" />
+            </LinearLayout>
 
     </LinearLayout>
 <!--    </ScrollView>-->

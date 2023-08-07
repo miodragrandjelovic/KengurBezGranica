@@ -135,7 +135,7 @@ class PracticeActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<ArrayList<TaskResponse>>, t: Throwable) {
-                Toast.makeText(context,"Nesto nije u redu!", Toast.LENGTH_LONG)
+                Toast.makeText(context,"Nesto nije u redu!", Toast.LENGTH_LONG).show()
             }
 
         })

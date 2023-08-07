@@ -154,7 +154,7 @@ class LeaderboardActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<ArrayList<LeaderboardResponse>>, t: Throwable) {
-                Toast.makeText(context, "Nesto nije u redu!", Toast.LENGTH_LONG)
+                Toast.makeText(context, "Nesto nije u redu!", Toast.LENGTH_LONG).show()
             }
 
         })

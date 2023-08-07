@@ -28,5 +28,10 @@ namespace BackendKengur.UI
         {
            return assignmentService.GetTasksFiltered(Class, Level);
         }
+
+        public string SendStatistic(List<TaskEfficiencyDTO> list)
+        {
+            return assignmentService.SendStatistic(list);
+        }
     }
 }

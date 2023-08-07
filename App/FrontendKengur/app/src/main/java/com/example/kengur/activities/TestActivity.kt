@@ -4,11 +4,10 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.Paint
 import android.os.Bundle
+import android.util.Log
 import android.view.Window
 import android.widget.FrameLayout
-import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +15,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toDrawable
 import androidx.core.view.isGone
 import com.example.kengur.R
+import com.example.kengur.dtos.request.StatisticRequest
 import com.example.kengur.dtos.request.ResultRequest
 import com.example.kengur.dtos.response.MessageResponse
 import com.example.kengur.dtos.response.TaskResponse
@@ -24,10 +24,7 @@ import com.example.kengur.utility.ApiClient
 import com.example.kengur.utility.SessionManager
 import com.example.kengur.utility.UtilityFunctions
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_test.*
-import kotlinx.android.synthetic.main.activity_test.view.*
-import kotlinx.android.synthetic.main.dialog_test_result.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -64,14 +61,42 @@ class TestActivity : AppCompatActivity() {
         finish.setOnClickListener(){
 
             var points:Double= 0.0
+            var statisticArray:ArrayList<StatisticRequest> = arrayListOf()
 
             for(i in answers.indices){
 
                 if(answers[i]==testTasks[i].correctAnswerIndex)
+                {
                     points+=testTasks[i].level
+                    statisticArray.add(StatisticRequest(testTasks[i].id,true))
+                }
+
                 else
-                    points-=testTasks[i].level/4
+                {
+                    points -= testTasks[i].level / 4
+                    statisticArray.add(StatisticRequest(testTasks[i].id,false))
+                }
             }
+
+            var context: Context = this
+
+            apiClient.getTestService(context).sendStatistic(statisticArray).enqueue(object : Callback<MessageResponse>{
+                override fun onResponse(
+                    call: Call<MessageResponse>,
+                    response: Response<MessageResponse>
+                ) {
+                    if (response.isSuccessful)
+                        Log.d("","Statistika testa uspesno poslata")
+                    else
+                        Toast.makeText(context, "Nesto nije u redu!", Toast.LENGTH_LONG).show()
+                }
+
+                override fun onFailure(call: Call<MessageResponse>, t: Throwable) {
+                    Toast.makeText(context, "Nesto nije u redu!", Toast.LENGTH_LONG).show()
+                }
+
+            })
+
 
             if (points<=0.0)
                 points=0.0
@@ -107,7 +132,6 @@ class TestActivity : AppCompatActivity() {
                 //u suprotnom proveri
                 else {
 
-                    var context: Context = this
                     var user = sessionManager.fetchUserData()
 
                     val resultRequest = ResultRequest(
@@ -136,7 +160,7 @@ class TestActivity : AppCompatActivity() {
                             }
 
                             override fun onFailure(call: Call<MessageResponse>, t: Throwable) {
-                                Toast.makeText(context, "Nesto nije u redu!", Toast.LENGTH_LONG)
+                                Toast.makeText(context, "Nesto nije u redu!", Toast.LENGTH_LONG).show()
                             }
 
                         })
@@ -273,7 +297,7 @@ class TestActivity : AppCompatActivity() {
         task_previous.setOnClickListener(){
 
             if(index==0){
-                Toast.makeText(this,"Nema prethodnog pitanja!",Toast.LENGTH_SHORT)
+                Toast.makeText(this,"Nema prethodnog pitanja!",Toast.LENGTH_SHORT).show()
             }
             else
             {
@@ -443,7 +467,7 @@ class TestActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<ArrayList<TaskResponse>>, t: Throwable) {
-                Toast.makeText(context,"Nesto nije u redu!",Toast.LENGTH_LONG)
+                Toast.makeText(context,"Nesto nije u redu!",Toast.LENGTH_LONG).show()
             }
 
         })

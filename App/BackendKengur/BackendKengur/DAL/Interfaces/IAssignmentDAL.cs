@@ -1,4 +1,5 @@
-﻿using BackendKengur.Models;
+﻿using BackendKengur.DTOComponents;
+using BackendKengur.Models;
 
 namespace BackendKengur.DAL.Interfaces
 {
@@ -9,6 +10,8 @@ namespace BackendKengur.DAL.Interfaces
         List<Assignment> GetAssignmentsByClass(string Class);
 
         List<Assignment> GetTasksFiltered(string Class,int Level);
-        
+
+        bool SendStatistic(List<TaskEfficiencyDTO> list);
+
     }
 }

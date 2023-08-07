@@ -10,6 +10,8 @@ namespace BackendKengur.Services.Interfaces
         List<Assignment> GetAssignmentsByClass(string Class);
 
         List<Assignment> GetTasksFiltered(string Class,int Level);
-        
+
+        string SendStatistic(List<TaskEfficiencyDTO> list);
+
     }
 }

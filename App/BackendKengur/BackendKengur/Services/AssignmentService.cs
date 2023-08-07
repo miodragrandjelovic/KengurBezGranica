@@ -89,5 +89,12 @@ namespace BackendKengur.Services
             return assignments;
 
         }
+
+        public string SendStatistic(List<TaskEfficiencyDTO> list)
+        {
+            if (assignmentDAL.SendStatistic(list))
+                return "Zadaci uspesno updatejtovani";
+            return "Nesto nije u redu";
+        }
     }
 }

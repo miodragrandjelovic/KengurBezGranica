@@ -39,5 +39,15 @@ namespace BackendKengur.Controllers
             return Ok(assignments);
         }
 
+
+        [HttpPut("SendStatistic")]
+        public async Task<IActionResult> SendStatistic(List<TaskEfficiencyDTO> list)
+        {
+            var message = assignmentUI.SendStatistic(list);
+            return Ok(message);
+        }
+
+        
+
     }
 }

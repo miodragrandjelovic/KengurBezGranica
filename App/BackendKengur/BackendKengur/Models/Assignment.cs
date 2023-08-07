@@ -29,5 +29,11 @@ namespace BackendKengur.Models
 
         [BsonElement("class")]
         public string Class { get; set; } = string.Empty;
+
+        [BsonElement("correct")]
+        public int Correct { get; set; } = 0;
+
+        [BsonElement("wrong")]
+        public int Wrong { get; set; } = 0;
     }
 }
