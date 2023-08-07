@@ -72,6 +72,8 @@ namespace BackendKengur.Services
                 FirstName = registerDTO.FirstName,
                 LastName = registerDTO.LastName,
                 Email = registerDTO.Email,
+                Gender = registerDTO.Gender,
+                Grade = registerDTO.Grade,
                 School = new School { 
                     Id = school.Id,
                     Name = school.Name,

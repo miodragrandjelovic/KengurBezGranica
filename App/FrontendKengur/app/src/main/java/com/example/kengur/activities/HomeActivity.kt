@@ -53,8 +53,10 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun practiceStart() {
-        val intent = Intent (this, PracticeActivity::class.java);
-        startActivity(intent);
+        component_practice.setOnClickListener(){
+            val intent = Intent (this, PracticeActivity::class.java);
+            startActivity(intent);
+        }
     }
 
     override fun onRestart() {

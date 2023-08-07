@@ -121,7 +121,7 @@
                 android:layout_height="@dimen/_39sdp"
                 android:layout_gravity="center"
                 android:background="@drawable/input_field"
-                android:entries="@array/razred_array"
+                android:entries="@array/pol_array"
                 android:paddingLeft="@dimen/_15sdp"
                 android:paddingBottom="@dimen/_7sdp" />
 
@@ -136,7 +136,7 @@
                 android:layout_height="@dimen/_39sdp"
                 android:layout_gravity="center"
                 android:background="@drawable/input_field"
-                android:entries="@array/razred_array"
+                android:entries="@array/ocena_array"
                 android:paddingLeft="@dimen/_15sdp"
                 android:paddingBottom="@dimen/_7sdp" />
 
@@ -168,7 +168,7 @@
                 android:layout_height="@dimen/_39sdp"
                 android:layout_gravity="center"
                 android:background="@drawable/input_field"
-                android:entries="@array/razred_array"
+                android:entries="@array/razred_registracija_array"
                 android:paddingLeft="@dimen/_15sdp"
                 android:paddingBottom="@dimen/_7sdp" />
 

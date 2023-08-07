@@ -10,6 +10,10 @@ data class RegisterRequest (
     var lastName: String,
     @SerializedName("email")
     var email: String,
+    @SerializedName("gender")
+    var gender: Short,
+    @SerializedName("grade")
+    var grade: Short,
     @SerializedName("school")
     var school: String,
     @SerializedName("class")

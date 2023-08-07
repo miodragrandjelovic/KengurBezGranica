@@ -91,18 +91,19 @@ class RegisterActivity : AppCompatActivity() {
                 id: Long
             ) {
                 when (position) {
-                    0 -> selectedClass = 1
-                    1 -> selectedClass = 2
-                    2 -> selectedClass = 3
-                    3 -> selectedClass = 4
-                    4 -> selectedClass = 5
-                    5 -> selectedClass = 6
-                    6 -> selectedClass = 7
-                    7 -> selectedClass = 8
-                    8 -> selectedClass = 9
-                    9 -> selectedClass = 10
-                    10 -> selectedClass = 11
-                    11 -> selectedClass = 12
+                    0 -> selectedClass = 0
+                    1 -> selectedClass = 1
+                    2 -> selectedClass = 2
+                    3 -> selectedClass = 3
+                    4 -> selectedClass = 4
+                    5 -> selectedClass = 5
+                    6 -> selectedClass = 6
+                    7 -> selectedClass = 7
+                    8 -> selectedClass = 8
+                    9 -> selectedClass = 9
+                    10 -> selectedClass = 10
+                    11 -> selectedClass = 11
+                    12 -> selectedClass = 12
                 }
             }
 
@@ -128,8 +129,9 @@ class RegisterActivity : AppCompatActivity() {
                 id: Long
             ) {
                 when (position) {
-                    0 -> selectedGender = 0
-                    1 -> selectedGender = 1
+                    0 -> selectedGender = -1
+                    1 -> selectedGender = 0
+                    2 -> selectedGender = 1
                 }
             }
 
@@ -157,11 +159,12 @@ class RegisterActivity : AppCompatActivity() {
                 id: Long
             ) {
                 when (position) {
-                    0 -> selectedGrade = 1
-                    1 -> selectedGrade = 2
-                    2 -> selectedGrade = 3
-                    3 -> selectedGrade = 4
-                    4 -> selectedGrade = 5
+                    0 -> selectedGrade = 0
+                    1 -> selectedGrade = 1
+                    2 -> selectedGrade = 2
+                    3 -> selectedGrade = 3
+                    4 -> selectedGrade = 4
+                    5 -> selectedGrade = 5
 
                 }
             }
@@ -185,19 +188,20 @@ class RegisterActivity : AppCompatActivity() {
             val prezime = et_prezime.text.toString()
             val email = et_email.text.toString()
             val skola = tv_school.text.toString()
-            val razred = selectedClass
             val mesto = et_mesto.text.toString()
             val sifra = et_sifra.text.toString()
 
-            if(ime!="" && prezime!="" && email!="" && skola!="Škola"  && mesto!="" && sifra!="")
+            if(ime!="" && prezime!="" && email!="" && skola!="Škola" && selectedClass.toInt() !=0 && selectedGender.toInt() !=-1 && selectedGrade.toInt() !=0  && mesto!="" && sifra!="")
             {
 
                 var registerDTO = RegisterRequest(
                     firstName = ime,
                     lastName = prezime,
                     email = email,
+                    gender = selectedGender,
+                    grade = selectedGrade,
                     school = skola,
-                    userClass = razred,
+                    userClass = selectedClass,
                     password = sifra
                 )
 

@@ -19,6 +19,12 @@ namespace BackendKengur.Models
         [BsonElement("email")]
         public string Email { get; set; } = string.Empty;
 
+        [BsonElement("gender")]
+        public short Gender { get; set; }
+
+        [BsonElement("grade")]
+        public short Grade { get; set; }
+
         [BsonElement("school")]
         public School? School { get; set; }
 
