@@ -65,6 +65,9 @@ class TestActivity : AppCompatActivity() {
 
             for(i in answers.indices){
 
+                if(answers[i]==-1)
+                    continue
+
                 if(answers[i]==testTasks[i].correctAnswerIndex)
                 {
                     points+=testTasks[i].level

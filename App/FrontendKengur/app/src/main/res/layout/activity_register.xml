@@ -141,7 +141,6 @@
                 android:layout_height="@dimen/_39sdp"
                 android:layout_marginTop="@dimen/_7sdp"
                 android:background="@drawable/input_field_huge"
-                android:fontFamily="@font/inter_bold"
                 android:paddingLeft="@dimen/_15sdp"
                 android:paddingTop="@dimen/_5sdp"
                 android:singleLine="true"

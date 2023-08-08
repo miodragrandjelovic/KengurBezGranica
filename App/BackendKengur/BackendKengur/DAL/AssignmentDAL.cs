@@ -3,6 +3,10 @@ using MongoDB.Driver;
 using BackendKengur.Models;
 using BackendKengur.Models.Interfaces;
 using BackendKengur.DTOComponents;
+using System.Collections.Generic;
+using System;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson;
 
 namespace BackendKengur.DAL
 {
@@ -25,7 +29,27 @@ namespace BackendKengur.DAL
 
         public List<Assignment> GetAssignmentsByClass(string Class)
         {
-            return _assignments.Find(assignment => Class.Equals(assignment.Class)).ToList();
+
+            //return _assignments.Find(assignment => Class.Equals(assignment.Class)).ToList();
+
+            return GetRandomTasks(_assignments, Class, 3, 2)
+            .Union(GetRandomTasks(_assignments, Class, 4, 2))
+            .Union(GetRandomTasks(_assignments, Class, 5, 2))
+            .ToList();
+        }
+
+        static List<Assignment> GetRandomTasks(IMongoCollection<Assignment> collection, string className, int level, int count)
+        {
+            var pipeline = new List<BsonDocument>
+        {
+            BsonDocument.Parse("{ $match: { class: '" + className + "', level: " + level + " } }"), // Filter by Class and Level
+            BsonDocument.Parse("{ $sample: { size: " + count + " } }") // Use $sample to get random documents
+        };
+
+            var cursor = collection.Aggregate<Assignment>(pipeline);
+            var randomTasks = cursor.ToList();
+
+            return randomTasks;
         }
 
         public List<Assignment> GetTasksFiltered(string Class, int Level)
@@ -53,11 +77,8 @@ namespace BackendKengur.DAL
 
                 var updateAssigment = _assignments.UpdateOne(a => a.Id == task.id, update);
 
-                if (updateAssigment.ModifiedCount > 0)
-                    return true;
-                return false;
             }
-            return false;
+            return true;
         }
     }
 }
