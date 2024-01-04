@@ -5,7 +5,7 @@ namespace BackendKengur.UI.Interfaces
 {
     public interface IUserUI
     {
-        UserDTO GetUser(string email);
+        Task<UserDTO> GetUser(string email);
         UserDTO CreateUserDTO(User user);
     }
 }

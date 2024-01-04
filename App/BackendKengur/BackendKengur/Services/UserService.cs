@@ -14,9 +14,9 @@ namespace BackendKengur.Services
             userDAL = _userDAL;
         }
 
-        public MyResponse AddNewUser(User user)
+        public async Task<MyResponse> AddNewUser(User user)
         {
-            var succeed=userDAL.AddNewUser(user);
+            var succeed= await userDAL.AddNewUser(user);
             if (!succeed)
             {
                 return new MyResponse
@@ -34,9 +34,9 @@ namespace BackendKengur.Services
 
 
 
-        public User? GetUser(string email)
+        public async Task<User> GetUser(string email)
         {
-            return userDAL.GetUser(email);
+            return await userDAL.GetUser(email);
         }
 
         public Task<bool> UserAlreadyExists(string email)

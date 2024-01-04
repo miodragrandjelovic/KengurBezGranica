@@ -4,9 +4,9 @@ namespace BackendKengur.Services
 {
     public class FileService : IFileService
     {
-        public void AddFile(string path, IFormFile file)
+        public async Task AddFile(string path, IFormFile file)
         {
-            DirectoryInfo info = Directory.CreateDirectory(path); // kreiranje foldera do slika (images/razred/nivoZadatka)
+            _ = Directory.CreateDirectory(path); // kreiranje foldera do slika (images/razred/nivoZadatka)
 
             var sections = file.FileName.Split('.');
             string filePath;
@@ -17,7 +17,7 @@ namespace BackendKengur.Services
 
             using (FileStream fs = new FileStream(filePath, FileMode.Create))
             {
-                file.CopyTo(fs);
+                await file.CopyToAsync(fs);
             }
         }
     }

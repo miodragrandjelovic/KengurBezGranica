@@ -1,33 +1,42 @@
 ﻿using BackendKengur.Models.Interfaces;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace BackendKengur.Models
 {
     public class EncryptionManager: IEncryptionManager
     {
-        public void EncryptPassword(string password, out byte[] passwordHash, out byte[] passwordKey)
+        public async Task<(byte[], byte[])> EncryptPassword(string password)
         {
             using (var hmac = new HMACSHA512())
             {
-                passwordKey = hmac.Key;
+                using (var stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(password)))
+                {
+                    var passwordKey = hmac.Key;
 
-                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                    var passwordHash = await hmac.ComputeHashAsync(stream);
+
+                    return (passwordHash, passwordKey);
+                }      
 
             }
         }
 
-        public bool DecryptPassword(string userPassword, byte[] password, byte[] passwordKey)
+        public async Task<bool> DecryptPassword(string userPassword, byte[] password, byte[] passwordKey)
         {
             bool answer = false;
             using (var hmac = new HMACSHA512(passwordKey))
             {
-                var passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(userPassword));
+                using (var stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(userPassword)))
+                {
+                    var passwordHash = await hmac.ComputeHashAsync(stream);
 
-                answer = passwordHash.SequenceEqual(password);
+                    answer = passwordHash.SequenceEqual(password);
+                }
             }
-
 
             return answer;
         }
+
     }
 }

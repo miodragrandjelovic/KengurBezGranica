@@ -2,6 +2,6 @@
 {
     public interface IFileService
     {
-        void AddFile(string path,IFormFile file);
+        Task AddFile(string path,IFormFile file);
     }
 }

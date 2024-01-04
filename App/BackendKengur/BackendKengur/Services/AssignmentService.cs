@@ -16,7 +16,7 @@ namespace BackendKengur.Services
             this.fileService = fileService;
         }
 
-        public Assignment AddNewAssignment(AssignmentDTO assignmentDTO)
+        public async Task<Assignment> AddNewAssignment(AssignmentDTO assignmentDTO)
         {
 
             var assignment = new Assignment();
@@ -31,7 +31,7 @@ namespace BackendKengur.Services
 
             if(assignmentDTO.TaskPicture != null)
             {
-                fileService.AddFile(path,assignmentDTO.TaskPicture);
+                await fileService.AddFile(path,assignmentDTO.TaskPicture);
 
                 assignment.TaskPicture = assignmentDTO.TaskPicture.FileName;
             }
@@ -40,7 +40,7 @@ namespace BackendKengur.Services
             {
                 foreach (var image in assignmentDTO.AnswersPictures)
                 {
-                    fileService.AddFile(path,image);
+                    await fileService.AddFile(path,image);
 
                     assignment.AnswersPictures.Add(image.FileName);
                 }
@@ -48,12 +48,12 @@ namespace BackendKengur.Services
 
 
 
-            return assignmentDAL.AddNewAssignment(assignment);
+            return await assignmentDAL.AddNewAssignment(assignment);
         }
 
-        public List<Assignment> GetAssignmentsByClass(string Class)
+        public async Task<List<Assignment>> GetAssignmentsByClass(string Class)
         {
-            var assignments = assignmentDAL.GetAssignmentsByClass(Class);
+            var assignments = await assignmentDAL.GetAssignmentsByClass(Class);
 
             // dodavanje full path-a slikama da bi moglo da im se pristupi sa fronta
             foreach (var assignment in assignments)
@@ -71,9 +71,9 @@ namespace BackendKengur.Services
 
         }
 
-        public List<Assignment> GetTasksFiltered(string Class, int Level)
+        public async Task<List<Assignment>> GetTasksFiltered(string Class, int Level)
         {
-            var assignments = assignmentDAL.GetTasksFiltered(Class, Level);
+            var assignments = await assignmentDAL.GetTasksFiltered(Class, Level);
 
             foreach (var assignment in assignments)
             {
@@ -90,11 +90,9 @@ namespace BackendKengur.Services
 
         }
 
-        public string SendStatistic(List<TaskEfficiencyDTO> list)
+        public async Task<bool> SendStatistic(List<TaskEfficiencyDTO> list)
         {
-            if (assignmentDAL.SendStatistic(list))
-                return "Zadaci uspesno updatejtovani";
-            return "Nesto nije u redu";
+            return await assignmentDAL.SendStatistic(list);
         }
     }
 }

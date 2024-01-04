@@ -38,7 +38,7 @@ namespace BackendKengur.Models
         public int TestNumber { get; set; } = 0;
 
         [BsonElement("sumPoints")]
-        public float SumPoints { get; set; } = 0;
+        public double SumPoints { get; set; } = 0.0;
 
         [BsonElement("password")]
         public byte[]? Password { get; set; }

@@ -19,7 +19,7 @@ namespace BackendKengur.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDTO request)
         {
-            var answer = authService.Register(request).Result;
+            var answer = await authService.Register(request);
             var message = new { message = answer.Message };
             if (answer.StatusCode.Equals(StatusCodes.Status400BadRequest))
                 return BadRequest(message);
@@ -30,7 +30,7 @@ namespace BackendKengur.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDTO request)
         {
-            var answer = authService.Login(request).Result;
+            var answer = await authService.Login(request);
             var message = new { message = answer.Message };
 
             if (answer.StatusCode.Equals(StatusCodes.Status404NotFound))

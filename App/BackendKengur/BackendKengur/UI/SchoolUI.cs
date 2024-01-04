@@ -13,9 +13,9 @@ namespace BackendKengur.UI
             schoolService = _schoolService;
         }
 
-        public School AddNewSchool(School school)
+        public async Task<School> AddNewSchool(School school)
         {
-           return schoolService.AddNewSchool(school);
+           return await schoolService.AddNewSchool(school);
         }
 
         public void DeleteSchool(string id)
@@ -23,19 +23,19 @@ namespace BackendKengur.UI
             schoolService.DeleteSchool(id);
         }
 
-        public List<School> GetAllSchools()
+        public async Task<List<School>> GetAllSchools()
         {
-            return schoolService.GetAllSchools();
+            return await schoolService.GetAllSchools();
         }
 
-        public School GetSchoolById(string id)
+        public async Task<School> GetSchoolById(string id)
         {
-            return schoolService.GetSchoolById(id);
+            return await schoolService.GetSchoolById(id);
         }
 
-        public List<School> SearchSchools(string name)
+        public async Task<List<School>> SearchSchools(string name)
         {
-            return schoolService.SearchSchools(name);
+            return await schoolService.SearchSchools(name);
         }
     }
 }

@@ -5,12 +5,12 @@ namespace BackendKengur.UI.Interfaces
 {
     public interface IAssignmentUI
     {
-        Assignment AddNewAssignment(AssignmentDTO assignmentDTO);
+        Task<Assignment> AddNewAssignment(AssignmentDTO assignmentDTO);
 
-        List<Assignment> GetAssignmentsByClass(string Class);
+        Task<List<Assignment>> GetAssignmentsByClass(string Class);
 
-        List<Assignment> GetTasksFiltered(string Class,int Level);
+        Task<List<Assignment>> GetTasksFiltered(string Class,int Level);
 
-         string SendStatistic(List<TaskEfficiencyDTO> list);
+        Task<bool> SendStatistic(List<TaskEfficiencyDTO> list);
     }
 }

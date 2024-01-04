@@ -4,7 +4,7 @@ namespace BackendKengur.DAL.Interfaces
 {
     public interface ILeaderboardDAL
     {
-        bool AddResult(Result result);
-        List<Result> GetLeaderboard(string Class);
+        Task<bool> AddResult(Result result);
+        Task<List<Result>> GetLeaderboard(string Class);
     }
 }

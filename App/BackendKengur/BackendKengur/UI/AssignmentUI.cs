@@ -14,24 +14,24 @@ namespace BackendKengur.UI
             this.assignmentService = assignmentService;
         }
 
-        public Assignment AddNewAssignment(AssignmentDTO assignmentDTO)
+        public async Task<Assignment> AddNewAssignment(AssignmentDTO assignmentDTO)
         {
-            return assignmentService.AddNewAssignment(assignmentDTO);
+            return await assignmentService.AddNewAssignment(assignmentDTO);
         }
 
-        public List<Assignment> GetAssignmentsByClass(string Class)
+        public async Task<List<Assignment>> GetAssignmentsByClass(string Class)
         {
-            return assignmentService.GetAssignmentsByClass(Class);
+            return await assignmentService.GetAssignmentsByClass(Class);
         }
 
-        public List<Assignment> GetTasksFiltered(string Class, int Level)
+        public async Task<List<Assignment>> GetTasksFiltered(string Class, int Level)
         {
-           return assignmentService.GetTasksFiltered(Class, Level);
+           return await assignmentService.GetTasksFiltered(Class, Level);
         }
 
-        public string SendStatistic(List<TaskEfficiencyDTO> list)
+        public async Task<bool> SendStatistic(List<TaskEfficiencyDTO> list)
         {
-            return assignmentService.SendStatistic(list);
+            return await assignmentService.SendStatistic(list);
         }
     }
 }

@@ -13,18 +13,19 @@ namespace BackendKengur.UI
             this.userService = userService;
         }
 
-        public UserDTO? GetUser(string email)
+        public async Task<UserDTO> GetUser(string email)
         {
-           var user = userService.GetUser(email);
-            if(user == null)
-                return null;
-            return CreateUserDTO(user);
+           var user = await userService.GetUser(email);
+           return CreateUserDTO(user);
 
         }
 
         public UserDTO CreateUserDTO(User user)
         {
-            var userDTO = new UserDTO {
+            if (user == null)
+                return null;
+
+            return new UserDTO {
             
                 FirstName = user.FirstName,
                 LastName = user.LastName,
@@ -33,8 +34,6 @@ namespace BackendKengur.UI
                 SumPoints = user.SumPoints,
                 TestNumber = user.TestNumber
             };
-
-            return userDTO;
         }
     }
 }

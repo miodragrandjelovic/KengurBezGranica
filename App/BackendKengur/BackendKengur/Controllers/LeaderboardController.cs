@@ -20,15 +20,15 @@ namespace BackendKengur.Controllers
         [HttpPost("AddResult")]
         public async Task<IActionResult> AddResult(ResultDTO result)
         {
-            var response = leaderboardUI.AddResult(result);
+            var response = await leaderboardUI.AddResult(result);
             return Ok(response);
         }
 
 
         [HttpGet("Leaderboard/{Class}")]
-        public async Task<IActionResult> GetLeaderboard(string Class)
+        public async Task<ActionResult<List<Result>>> GetLeaderboard(string Class)
         {
-            var leaderboard = leaderboardUI.GetLeaderboard(Class);
+            var leaderboard = await leaderboardUI.GetLeaderboard(Class);
             return Ok(leaderboard);
         }
 

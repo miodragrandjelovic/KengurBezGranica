@@ -18,33 +18,35 @@ namespace BackendKengur.Controllers
         }
 
         [HttpPost("AddNewAssignment")]
-        public async Task<IActionResult> AddNewAssignment([FromForm] AssignmentDTO assignmentDTO)
+        public async Task<ActionResult<Assignment>> AddNewAssignment([FromForm] AssignmentDTO assignmentDTO)
         {
-            var createdAssignmentl = assignmentUI.AddNewAssignment(assignmentDTO);
+            var createdAssignmentl = await assignmentUI.AddNewAssignment(assignmentDTO);
             return Ok(createdAssignmentl);
         }
 
 
         [HttpGet("GenerateTest/{Class}")]
-        public async Task<IActionResult> GetAssignmentsByClass(string Class)
+        public async Task<ActionResult<List<Assignment>>> GetAssignmentsByClass(string Class)
         {
-            var assignments = assignmentUI.GetAssignmentsByClass(Class);
+            var assignments = await assignmentUI.GetAssignmentsByClass(Class);
             return Ok(assignments);
         }
 
         [HttpGet("GetTasksFiltered/{Class}/{Level}")]
-        public async Task<IActionResult> GetTasksFiltered(string Class,int Level)
+        public async Task<ActionResult<List<Assignment>>> GetTasksFiltered(string Class,int Level)
         {
-            var assignments = assignmentUI.GetTasksFiltered(Class,Level);
+            var assignments = await assignmentUI.GetTasksFiltered(Class,Level);
             return Ok(assignments);
         }
 
 
         [HttpPut("SendStatistic")]
-        public async Task<IActionResult> SendStatistic(List<TaskEfficiencyDTO> list)
+        public async Task<ActionResult> SendStatistic(List<TaskEfficiencyDTO> list)
         {
-            var message = assignmentUI.SendStatistic(list);
-            return Ok(message);
+            var result = await assignmentUI.SendStatistic(list);
+            if (result)
+                return Ok();
+            return BadRequest("Something went wrong.");
         }
 
         

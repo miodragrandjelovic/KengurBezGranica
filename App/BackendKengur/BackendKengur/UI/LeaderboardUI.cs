@@ -15,18 +15,18 @@ namespace BackendKengur.UI
             this.leaderboardService = leaderboardService;
         }
 
-        public MyResponse AddResult(ResultDTO result)
+        public async Task<MyResponse> AddResult(ResultDTO result)
         {
-            var succeed = leaderboardService.AddResult(result);
+            var succeed = await leaderboardService.AddResult(result);
             if (!succeed)
                 return new MyResponse() { StatusCode = StatusCodes.Status404NotFound, Message="Rezultat upisan u rang-listu." };
 
             return new MyResponse() { StatusCode = StatusCodes.Status200OK, Message = "Rezultat upisan u rang-listu." };
         }
 
-        public List<Result> GetLeaderboard(string Class)
+        public async Task<List<Result>> GetLeaderboard(string Class)
         {
-            return leaderboardService.GetLeaderboard(Class);
+            return await leaderboardService.GetLeaderboard(Class);
         }
     }
 }

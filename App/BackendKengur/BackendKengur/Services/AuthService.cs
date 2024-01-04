@@ -30,7 +30,7 @@ namespace BackendKengur.Services
         public async Task<MyResponse> Login(LoginDTO loginDTO)
         {
             var response = new MyResponse();
-            var user = userService.GetUser(loginDTO.Email);
+            var user = await userService.GetUser(loginDTO.Email);
             if (user == null)
             {
                 response.StatusCode = StatusCodes.Status404NotFound;
@@ -38,7 +38,9 @@ namespace BackendKengur.Services
                 return response;
             }
 
-            if (!encryptionManager.DecryptPassword(loginDTO.Password, user.Password!, user.PasswordKey!))
+            var result = await encryptionManager.DecryptPassword(loginDTO.Password, user.Password!, user.PasswordKey!);
+
+            if (result == false)
             {
                 response.StatusCode = StatusCodes.Status403Forbidden;
                 response.Message = "Wrong password!";
@@ -56,7 +58,7 @@ namespace BackendKengur.Services
         {
             var response = new MyResponse();
             byte[] passwordHash, passwordKey;
-            var user = userService.GetUser(registerDTO.Email);
+            var user = await userService.GetUser(registerDTO.Email);
             if(user!=null)
             {
                 response.StatusCode = StatusCodes.Status400BadRequest;
@@ -64,9 +66,9 @@ namespace BackendKengur.Services
                 return response;
             }
 
-            var school = schoolService.GetSchoolByNameAndCity(registerDTO.School);
+            var school = await schoolService.GetSchoolByNameAndCity(registerDTO.School);
 
-            encryptionManager.EncryptPassword(registerDTO.Password, out passwordHash, out passwordKey);
+            (passwordHash, passwordKey) = await encryptionManager.EncryptPassword(registerDTO.Password);
             User newUser = new User
             {
                 FirstName = registerDTO.FirstName,
@@ -83,7 +85,7 @@ namespace BackendKengur.Services
                 PasswordKey = passwordKey
             };
 
-            return userService.AddNewUser(newUser);
+            return await userService.AddNewUser(newUser);
             
         }
     }

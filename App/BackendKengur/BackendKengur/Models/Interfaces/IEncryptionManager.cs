@@ -2,7 +2,7 @@
 {
     public interface IEncryptionManager
     {
-        public void EncryptPassword(string password, out byte[] passwordHash, out byte[] passwordKey);
-        public bool DecryptPassword(string password, byte[] passwordHash, byte[] passwordKey);
+        public Task<(byte[], byte[])> EncryptPassword(string password);
+        public Task<bool> DecryptPassword(string password, byte[] passwordHash, byte[] passwordKey);
     }
 }

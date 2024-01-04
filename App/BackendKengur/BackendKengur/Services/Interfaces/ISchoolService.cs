@@ -5,13 +5,12 @@ namespace BackendKengur.Services.Interfaces
     public interface ISchoolService
     {
 
-        School AddNewSchool(School school);
-        List<School> GetAllSchools();
-        School GetSchoolById(string id);
+        Task<School> AddNewSchool(School school);
+        Task<List<School>> GetAllSchools();
+        Task<School> GetSchoolById(string id);
         void DeleteSchool(string id);
-        List<School> SearchSchools(string school);
-
-        School GetSchoolByNameAndCity(string school);
+        Task<List<School>> SearchSchools(string school);
+        Task<School> GetSchoolByNameAndCity(string school);
 
     }
 }

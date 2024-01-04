@@ -17,15 +17,17 @@ namespace BackendKengur.DAL
             _userDAL = userDAL;
         }
 
-        public bool AddResult(Result result)
+        public async Task<bool> AddResult(Result result)
         {
-            _results.InsertOne(result);
-            return _userDAL.UpdateUser(result.User!.Email, result.Points);
+            await _results.InsertOneAsync(result);
+            return await _userDAL.UpdateUser(result.User!.Email, result.Points);
         }
 
-        public List<Result> GetLeaderboard(string Class)
+        public async Task<List<Result>> GetLeaderboard(string Class)
         {
-            return _results.Find(result=> result.Class == Class).SortByDescending(r => r.Points).ToList();
+            var resultsCursor = await _results.FindAsync(result => result.Class == Class);
+            var resultsToList= await resultsCursor.ToListAsync();
+            return resultsToList.OrderByDescending(r => r.Points).ToList();
         }
     }
 }

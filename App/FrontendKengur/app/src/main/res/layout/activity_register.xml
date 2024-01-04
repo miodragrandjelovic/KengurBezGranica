@@ -65,6 +65,7 @@
                     android:paddingBottom="@dimen/_7sdp"
                     android:singleLine="true"
                     android:textColorHint="@color/white"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_15sdp" />
 
                 <View
@@ -83,6 +84,7 @@
                     android:paddingBottom="@dimen/_7sdp"
                     android:singleLine="true"
                     android:textColorHint="@color/white"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_15sdp" />
 
             </LinearLayout>
@@ -100,6 +102,7 @@
                 android:paddingBottom="@dimen/_7sdp"
                 android:singleLine="true"
                 android:textColorHint="@color/white"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_15sdp" />
 
             <LinearLayout
@@ -180,6 +183,7 @@
                     android:paddingBottom="@dimen/_7sdp"
                     android:singleLine="true"
                     android:textColorHint="@color/white"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_15sdp" />
             </LinearLayout>
 
@@ -196,6 +200,7 @@
                 android:paddingBottom="@dimen/_7sdp"
                 android:singleLine="true"
                 android:textColorHint="@color/white"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_15sdp" />
 
             <TextView

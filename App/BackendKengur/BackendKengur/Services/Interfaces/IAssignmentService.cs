@@ -5,13 +5,10 @@ namespace BackendKengur.Services.Interfaces
 {
     public interface IAssignmentService
     {
-        Assignment AddNewAssignment(AssignmentDTO assignmentDTO);
-
-        List<Assignment> GetAssignmentsByClass(string Class);
-
-        List<Assignment> GetTasksFiltered(string Class,int Level);
-
-        string SendStatistic(List<TaskEfficiencyDTO> list);
+        Task<Assignment> AddNewAssignment(AssignmentDTO assignmentDTO);
+        Task<List<Assignment>> GetAssignmentsByClass(string Class);
+        Task<List<Assignment>> GetTasksFiltered(string Class,int Level);
+        Task<bool> SendStatistic(List<TaskEfficiencyDTO> list);
 
     }
 }

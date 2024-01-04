@@ -18,7 +18,7 @@ namespace BackendKengur.Controllers
         [HttpGet("GetUser/{email}")]
         public async Task<IActionResult> GetUser(string email)
         {
-            var user = userUI.GetUser(email);
+            var user = await userUI.GetUser(email);
             if (user == null)
                 return NotFound();
             return Ok(user);

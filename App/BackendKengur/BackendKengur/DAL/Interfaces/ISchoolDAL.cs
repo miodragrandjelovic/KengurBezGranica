@@ -4,11 +4,11 @@ namespace BackendKengur.DAL.Interfaces
 {
     public interface ISchoolDAL
     {
-        List<School> GetAllSchools();
-        School GetSchoolById(string id);
-        School AddNewSchool(School school);
+        Task<List<School>> GetAllSchools();
+        Task<School> GetSchoolById(string id);
+        Task<School> AddNewSchool(School school);
         void DeleteSchool(string id);
-        List<School> SearchSchools(string name);
-        School GetSchoolByNameAndCity(string[] _school);
+        Task<List<School>> SearchSchools(string name);
+        Task<School> GetSchoolByNameAndCity(string[] _school);
     }
 }

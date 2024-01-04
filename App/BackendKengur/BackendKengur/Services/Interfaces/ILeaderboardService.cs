@@ -5,8 +5,8 @@ namespace BackendKengur.Services.Interfaces
 {
     public interface ILeaderboardService
     {
-        bool AddResult(ResultDTO result);
+        Task<bool> AddResult(ResultDTO result);
 
-        List<Result> GetLeaderboard(string Class);
+        Task<List<Result>> GetLeaderboard(string Class);
     }
 }

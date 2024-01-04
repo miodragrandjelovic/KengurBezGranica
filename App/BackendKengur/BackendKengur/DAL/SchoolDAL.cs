@@ -15,32 +15,35 @@ namespace BackendKengur.DAL
             _schools = database.GetCollection<School>(settings.SchoolCollectionName);
         }
 
-        public School AddNewSchool(School school)
+        public async Task<School> AddNewSchool(School school)
         {
-            _schools.InsertOne(school);
+            await _schools.InsertOneAsync(school);
             return school;
         }
-        public List<School> GetAllSchools()
+        public async Task<List<School>> GetAllSchools()
         {
-            return _schools.Find(school => true).ToList();
+            var schools = await _schools.FindAsync(school => true);
+            return await schools.ToListAsync();
         }
 
-        public School GetSchoolById(string id)
+        public async Task<School> GetSchoolById(string id)
         {
-            return _schools.Find(school=> school.Id == id).FirstOrDefault();
+            var school = await _schools.FindAsync(school => school.Id == id);
+            return await school.FirstOrDefaultAsync();
         }
 
         public void DeleteSchool(string id)
         {
-            _schools.DeleteOne(school => school.Id == id);
+            _ = _schools.DeleteOneAsync(school => school.Id == id);
         }
 
-        public List<School> SearchSchools(string name)
+        public async Task<List<School>> SearchSchools(string name)
         {
-            return _schools.Find(schools=> schools.Name.Contains(name)).ToList();
+            var schools = await _schools.FindAsync(schools => schools.Name.Contains(name));
+            return await schools.ToListAsync();
         }
 
-        public School GetSchoolByNameAndCity(string[] _school)
+        public async Task<School> GetSchoolByNameAndCity(string[] _school)
         {
             var nameFilter = Builders<School>.Filter
             .Eq(s => s.Name, _school[0]);
@@ -49,7 +52,8 @@ namespace BackendKengur.DAL
                 .Eq(s => s.City, _school[1]);
 
             var filter = Builders<School>.Filter.And(nameFilter, cityFilter);
-            return _schools.Find(filter).FirstOrDefault();
+            var school = await _schools.FindAsync(filter);
+            return await school.FirstOrDefaultAsync();
         }
     }
 }

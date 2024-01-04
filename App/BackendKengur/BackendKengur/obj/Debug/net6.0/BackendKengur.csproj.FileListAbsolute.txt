@@ -86,3 +86,8 @@ C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug
 C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\staticwebassets\msbuild.BackendKengur.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\staticwebassets\msbuild.build.BackendKengur.props
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BackendKengur.props
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BackendKengur.props
+C:\Users\User\Desktop\KengurBezGranica\App\BackendKengur\BackendKengur\obj\Debug\net6.0\staticwebassets.pack.json

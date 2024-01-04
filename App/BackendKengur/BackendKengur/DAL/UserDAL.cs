@@ -16,32 +16,36 @@ namespace BackendKengur.DAL
             _user = database.GetCollection<User>(settings.UserCollectionName);
         }
 
-        public bool AddNewUser(User user)
+        public async Task<bool> AddNewUser(User user)
         {
-            if (GetUser(user.Email) != null)
-                return false;
             if (user == null)
                 return false;
-            _user.InsertOne(user);
+
+            var result = await GetUser(user.Email);
+            if (result != null)
+                return false;
+
+            await _user.InsertOneAsync(user);
             return true;
         }
 
-        public bool UpdateUser(string email,double points) 
+        public async Task<bool> UpdateUser(string email,double points) 
         {
             var update = Builders<User>.Update
             .Inc("testNumber", 1)
             .Inc("sumPoints", points);
 
-            var updateResult = _user.UpdateOne(u => u.Email == email, update);
+            var updateResult = await _user.UpdateOneAsync(u => u.Email == email, update);
 
             if (updateResult.ModifiedCount > 0)
                 return true;
             return false;
         }
 
-        public User? GetUser(string email)
+        public async Task<User> GetUser(string email)
         {
-            return _user.Find(user=> user.Email.Equals(email)).FirstOrDefault();   
+            var user = await _user.FindAsync(user => user.Email.Equals(email));
+            return await user.FirstOrDefaultAsync();   
         }
     }
 }

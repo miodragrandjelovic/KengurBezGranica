@@ -9,7 +9,7 @@ namespace BackendKengur.DTOComponents
         public School? School { get; set; }
         public short Class { get; set; }
         public int TestNumber { get; set; } = 0;
-        public float SumPoints { get; set; } = 0;
+        public double SumPoints { get; set; } = 0.0;
 
     }
 }

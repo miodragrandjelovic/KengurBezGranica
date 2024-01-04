@@ -21,24 +21,22 @@ namespace BackendKengur.DAL
             _assignments = database.GetCollection<Assignment>(settings.AssignmentCollectionName);
         }
 
-        public Assignment AddNewAssignment(Assignment assignment)
+        public async Task<Assignment> AddNewAssignment(Assignment assignment)
         {
-            _assignments.InsertOne(assignment);
+            await _assignments.InsertOneAsync(assignment);
             return assignment;
         }
 
-        public List<Assignment> GetAssignmentsByClass(string Class)
+        public async Task<List<Assignment>> GetAssignmentsByClass(string Class)
         {
-
-            //return _assignments.Find(assignment => Class.Equals(assignment.Class)).ToList();
-
-            return GetRandomTasks(_assignments, Class, 3, 2)
-            .Union(GetRandomTasks(_assignments, Class, 4, 2))
-            .Union(GetRandomTasks(_assignments, Class, 5, 2))
-            .ToList();
+            var tasks3 = await GetRandomTasks(_assignments, Class, 3, 2);
+            var tasks4 = await GetRandomTasks(_assignments, Class, 4, 2);
+            var tasks5 = await GetRandomTasks(_assignments, Class, 5, 2);
+            
+            return tasks3.Union(tasks4).Union(tasks5).ToList();
         }
 
-        static List<Assignment> GetRandomTasks(IMongoCollection<Assignment> collection, string className, int level, int count)
+        static async Task<List<Assignment>> GetRandomTasks(IMongoCollection<Assignment> collection, string className, int level, int count)
         {
             var pipeline = new List<BsonDocument>
         {
@@ -46,18 +44,19 @@ namespace BackendKengur.DAL
             BsonDocument.Parse("{ $sample: { size: " + count + " } }") // Use $sample to get random documents
         };
 
-            var cursor = collection.Aggregate<Assignment>(pipeline);
-            var randomTasks = cursor.ToList();
+            var cursor = await collection.AggregateAsync<Assignment>(pipeline);
+            var randomTasks = await cursor.ToListAsync();
 
             return randomTasks;
         }
 
-        public List<Assignment> GetTasksFiltered(string Class, int Level)
+        public async Task<List<Assignment>> GetTasksFiltered(string Class, int Level)
         {
-            return _assignments.Find(assignment => Class.Equals(assignment.Class) && Level == assignment.Level).ToList();
+            var result = await _assignments.FindAsync(assignment => Class.Equals(assignment.Class) && Level == assignment.Level);
+            return await result.ToListAsync();
         }
 
-        public bool SendStatistic(List<TaskEfficiencyDTO> list)
+        public async Task<bool> SendStatistic(List<TaskEfficiencyDTO> list)
         {
             foreach (var task in list) 
             {
@@ -75,7 +74,7 @@ namespace BackendKengur.DAL
                 }
                 
 
-                var updateAssigment = _assignments.UpdateOne(a => a.Id == task.id, update);
+                var updateAssigment = await _assignments.UpdateOneAsync(a => a.Id == task.id, update);
 
             }
             return true;

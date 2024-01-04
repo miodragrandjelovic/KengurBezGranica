@@ -4,8 +4,8 @@ namespace BackendKengur.DAL.Interfaces
 {
     public interface IUserDAL
     {
-        bool AddNewUser(User user);
-        User? GetUser(string email);
-        bool UpdateUser(string email, double points);
+        Task<bool> AddNewUser(User user);
+        Task<User> GetUser(string email);
+        Task<bool> UpdateUser(string email, double points);
     }
 }

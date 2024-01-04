@@ -5,9 +5,9 @@ namespace BackendKengur.UI.Interfaces
 {
     public interface ILeaderboardUI
     {
-        MyResponse AddResult(ResultDTO result);
+        Task<MyResponse> AddResult(ResultDTO result);
 
-        List<Result> GetLeaderboard(string Class);
+        Task<List<Result>> GetLeaderboard(string Class);
 
     }
 }

@@ -5,13 +5,13 @@ namespace BackendKengur.DAL.Interfaces
 {
     public interface IAssignmentDAL
     {
-        Assignment AddNewAssignment(Assignment assignment);
+        Task<Assignment> AddNewAssignment(Assignment assignment);
 
-        List<Assignment> GetAssignmentsByClass(string Class);
+        Task<List<Assignment>> GetAssignmentsByClass(string Class);
 
-        List<Assignment> GetTasksFiltered(string Class,int Level);
+        Task<List<Assignment>> GetTasksFiltered(string Class,int Level);
 
-        bool SendStatistic(List<TaskEfficiencyDTO> list);
+        Task<bool> SendStatistic(List<TaskEfficiencyDTO> list);
 
     }
 }

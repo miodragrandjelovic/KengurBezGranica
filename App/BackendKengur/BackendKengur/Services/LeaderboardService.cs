@@ -16,9 +16,9 @@ namespace BackendKengur.Services
             this.userDAL = userDAL;
         }
 
-        public bool AddResult(ResultDTO result)
+        public async Task<bool> AddResult(ResultDTO result)
         {
-            var user = userDAL.GetUser(result.email);
+            var user = await userDAL.GetUser(result.email);
 
             var modelResult = new Result() { 
                 Class = result.Class,
@@ -30,12 +30,12 @@ namespace BackendKengur.Services
                 } ,
                 Points = result.Points };
 
-            return leaderboardDAL.AddResult(modelResult);
+            return await leaderboardDAL.AddResult(modelResult);
         }
 
-        public List<Result> GetLeaderboard(string Class)
+        public async Task<List<Result>> GetLeaderboard(string Class)
         {
-            return leaderboardDAL.GetLeaderboard(Class);
+            return await leaderboardDAL.GetLeaderboard(Class);
         }
     }
 }
